@@ -7,7 +7,7 @@ const navMenu = document.getElementById("navMenu");
 const rotateButton = document.getElementById("rotateButton");
 const molecule = document.querySelector(".molecule");
 const themeToggle = document.getElementById("themeToggle");
-const statNumbers = document.querySelectorAll(".stat-number");
+const counters = document.querySelectorAll(".counter");
 
 /* ===== THEME TOGGLE ===== */
 function initTheme() {
@@ -70,6 +70,7 @@ function showSection(sectionId) {
     
     if (sectionId === "stats") {
         animateStats();
+        animateBars();
     }
     
     playClickSound();
@@ -77,8 +78,8 @@ function showSection(sectionId) {
 
 /* ===== ANIMATE STATISTICS ===== */
 function animateStats() {
-    statNumbers.forEach(stat => {
-        const target = parseFloat(stat.dataset.target);
+    counters.forEach(counter => {
+        const target = parseFloat(counter.dataset.target);
         const duration = 2000;
         const start = 0;
         const startTime = Date.now();
@@ -87,7 +88,7 @@ function animateStats() {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const current = (start + (target - start) * easeOutQuad(progress)).toFixed(1);
-            stat.textContent = current;
+            counter.textContent = current;
             
             if (progress < 1) {
                 requestAnimationFrame(updateNumber);
@@ -100,6 +101,21 @@ function animateStats() {
 
 function easeOutQuad(t) {
     return t * (2 - t);
+}
+
+/* ===== ANIMATE BARS ===== */
+function animateBars() {
+    const bars = document.querySelectorAll(".metric-bar, .bar, .region-bar, .reduction-bar");
+    bars.forEach((bar, index) => {
+        setTimeout(() => {
+            const targetWidth = bar.style.width || "100%";
+            bar.style.width = "0%";
+            setTimeout(() => {
+                bar.style.transition = "width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
+                bar.style.width = targetWidth;
+            }, 50);
+        }, index * 100);
+    });
 }
 
 /* ===== NAVIGATION BUTTONS ===== */
@@ -125,6 +141,64 @@ if (rotateButton && molecule) {
         void molecule.offsetWidth;
         molecule.classList.add("rotate");
         playClickSound();
+    });
+}
+
+/* ===== 3D MODEL VIEWER CONTROLS ===== */
+const viewer = document.getElementById("modelViewer");
+const loading = document.getElementById("loading");
+const fileInput = document.getElementById("fileInput");
+
+let rotating = true;
+
+if (viewer) {
+    viewer.addEventListener("load", () => {
+        if (loading) {
+            loading.innerText = "3D Model Loaded";
+            setTimeout(() => {
+                loading.style.opacity = "0";
+            }, 1500);
+        }
+    });
+}
+
+function resetCamera() {
+    if (viewer) {
+        viewer.cameraOrbit = "0deg 75deg 105%";
+        viewer.fieldOfView = "30deg";
+    }
+}
+
+function toggleRotation() {
+    if (!viewer) return;
+    rotating = !rotating;
+    if (rotating) {
+        viewer.setAttribute("auto-rotate", "");
+    } else {
+        viewer.removeAttribute("auto-rotate");
+    }
+}
+
+function toggleFullscreen() {
+    const box = document.querySelector(".viewer-box");
+    if (!box) return;
+    if (!document.fullscreenElement) {
+        box.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+if (fileInput) {
+    fileInput.addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (!file || !viewer) return;
+        const url = URL.createObjectURL(file);
+        viewer.src = url;
+        if (loading) {
+            loading.innerText = "Loading New Model...";
+            loading.style.opacity = "1";
+        }
     });
 }
 
