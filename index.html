@@ -26,15 +26,11 @@
     </div>
     
     <!-- Theme Toggle -->
-    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     
     <!-- Navigation -->
     <header class="navbar">
-        <div class="logo">
-            🌍 <span>EcoGuard</span>
-        </div>
+        <div class="logo">🌍 <span>EcoGuard</span></div>
         
         <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
         
@@ -104,52 +100,186 @@
                 <p>Real-time insights into global carbon emissions and climate impact.</p>
             </div>
             
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" data-target="37">0</div>
-                    <div class="stat-unit">Gigatons/Year</div>
-                    <p>Global CO₂ Emissions</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="1.1">0</div>
-                    <div class="stat-unit">°C</div>
-                    <p>Temperature Rise</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="95">0</div>
-                    <div class="stat-unit">%</div>
-                    <p>Preventable Emissions</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="186">0</div>
-                    <div class="stat-unit">Countries</div>
-                    <p>Signed Climate Accord</p>
+            <!-- Key Metrics Bar Chart -->
+            <div class="metrics-chart-container">
+                <h3 class="chart-title">Global Carbon Metrics</h3>
+                <div class="metrics-bars">
+                    <div class="metric-bar-item">
+                        <div class="metric-label">
+                            <span class="metric-name">Global CO₂ Emissions</span>
+                            <span class="metric-value"><span class="counter" data-target="37">0</span> Gt/Year</span>
+                        </div>
+                        <div class="metric-bar-wrapper">
+                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #FF6B6B, #FF1744);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-bar-item">
+                        <div class="metric-label">
+                            <span class="metric-name">Temperature Increase</span>
+                            <span class="metric-value"><span class="counter" data-target="1.1">0</span>°C</span>
+                        </div>
+                        <div class="metric-bar-wrapper">
+                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #FF8A50, #FF6B35);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-bar-item">
+                        <div class="metric-label">
+                            <span class="metric-name">Preventable Emissions</span>
+                            <span class="metric-value"><span class="counter" data-target="95">0</span>%</span>
+                        </div>
+                        <div class="metric-bar-wrapper">
+                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #50C878, #26A65B);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-bar-item">
+                        <div class="metric-label">
+                            <span class="metric-name">Countries in Climate Accord</span>
+                            <span class="metric-value"><span class="counter" data-target="186">0</span></span>
+                        </div>
+                        <div class="metric-bar-wrapper">
+                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #4ECDC4, #44A08D);"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
+            <!-- Emission Sources Bar Chart -->
             <div class="emissions-chart">
-                <h3>Top Emission Sources</h3>
+                <h3 class="chart-title">Top Emission Sources Breakdown</h3>
                 <div class="chart-bars">
                     <div class="bar-item">
-                        <div class="bar-label">Energy</div>
-                        <div class="bar-container">
-                            <div class="bar" style="width: 73%; background: linear-gradient(90deg, #FF6B6B, #FF8E72);"></div>
+                        <div class="bar-label">
+                            <span>🔋 Energy & Power</span>
+                            <span class="bar-value">73%</span>
                         </div>
-                        <div class="bar-value">73%</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #FF6B6B, #FF8E72);"></div>
+                        </div>
                     </div>
+                    
                     <div class="bar-item">
-                        <div class="bar-label">Agriculture</div>
-                        <div class="bar-container">
-                            <div class="bar" style="width: 18%; background: linear-gradient(90deg, #4ECDC4, #44A08D);"></div>
+                        <div class="bar-label">
+                            <span>🌾 Agriculture & Land Use</span>
+                            <span class="bar-value">18%</span>
                         </div>
-                        <div class="bar-value">18%</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #4ECDC4, #44A08D);"></div>
+                        </div>
                     </div>
+                    
                     <div class="bar-item">
-                        <div class="bar-label">Industrial</div>
-                        <div class="bar-container">
-                            <div class="bar" style="width: 9%; background: linear-gradient(90deg, #F7DC6F, #F8C471);"></div>
+                        <div class="bar-label">
+                            <span>🏭 Industrial Processes</span>
+                            <span class="bar-value">9%</span>
                         </div>
-                        <div class="bar-value">9%</div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #F7DC6F, #F8C471);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Regional Emissions Bar Chart -->
+            <div class="regional-chart">
+                <h3 class="chart-title">Top Emitting Regions</h3>
+                <div class="regional-bars">
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇨🇳 China</span>
+                            <span class="region-value"><span class="counter" data-target="10">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #E74C3C, #C0392B);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇺🇸 United States</span>
+                            <span class="region-value"><span class="counter" data-target="5.8">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #3498DB, #2980B9);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇮🇳 India</span>
+                            <span class="region-value"><span class="counter" data-target="2.4">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #F39C12, #D68910);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇷🇺 Russia</span>
+                            <span class="region-value"><span class="counter" data-target="1.7">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #9B59B6, #8E44AD);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇯🇵 Japan</span>
+                            <span class="region-value"><span class="counter" data-target="1.0">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #1ABC9C, #16A085);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emission Reduction Potential -->
+            <div class="reduction-potential">
+                <h3 class="chart-title">Emission Reduction Potential by Sector</h3>
+                <div class="reduction-bars">
+                    <div class="reduction-bar-item">
+                        <div class="reduction-label">
+                            <span>Renewable Energy Transition</span>
+                            <span class="reduction-value"><span class="counter" data-target="40">0</span>%</span>
+                        </div>
+                        <div class="reduction-bar-wrapper">
+                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #27AE60, #1E8449);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="reduction-bar-item">
+                        <div class="reduction-label">
+                            <span>Energy Efficiency Improvements</span>
+                            <span class="reduction-value"><span class="counter" data-target="25">0</span>%</span>
+                        </div>
+                        <div class="reduction-bar-wrapper">
+                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #2ECC71, #27AE60);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="reduction-bar-item">
+                        <div class="reduction-label">
+                            <span>Circular Economy Practices</span>
+                            <span class="reduction-value"><span class="counter" data-target="20">0</span>%</span>
+                        </div>
+                        <div class="reduction-bar-wrapper">
+                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #3498DB, #2980B9);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="reduction-bar-item">
+                        <div class="reduction-label">
+                            <span>Sustainable Agriculture</span>
+                            <span class="reduction-value"><span class="counter" data-target="15">0</span>%</span>
+                        </div>
+                        <div class="reduction-bar-wrapper">
+                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #F39C12, #D68910);"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -254,7 +384,7 @@
                     <h4>Definition</h4>
                     <p>Hydrofluorocarbons are a group of synthetic gases that have been used in some refrigeration and air-conditioning applications.</p>
                     <h4>Chemical Structure</h4>
-                    <div class="structure">CₓHᵧF𝓏</div>
+                    <div class="structure">CₓHᵧFᵢ</div>
                     <h4>Prevention Methods</h4>
                     <ul>
                         <li>Prevent refrigerant leaks.</li>
@@ -271,75 +401,48 @@
             <div class="section-title">
                 <p class="section-tag">SYSTEM OVERVIEW</p>
                 <h2>Circuit Diagram</h2>
-                <p>Visual representation of the carbon emission monitoring and filtration system.</p>
+                <p>Visual representation of the carbon emission monitoring and filtration system circuit.</p>
             </div>
             
             <div class="circuit-container">
-                <svg class="circuit-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Components -->
-                    <defs>
-                        <linearGradient id="compGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#50FF96;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#1EA56E;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    
-                    <!-- Sensor Unit -->
-                    <rect x="50" y="100" width="80" height="80" rx="10" fill="url(#compGrad)" opacity="0.3" stroke="#50FF96" stroke-width="2" class="circuit-component"/>
-                    <text x="90" y="145" text-anchor="middle" fill="#9DFFC0" font-size="12" font-weight="bold">Sensor</text>
-                    
-                    <!-- Processing Module -->
-                    <rect x="200" y="100" width="80" height="80" rx="10" fill="url(#compGrad)" opacity="0.3" stroke="#50FF96" stroke-width="2" class="circuit-component" style="animation-delay: 0.2s"/>
-                    <text x="240" y="145" text-anchor="middle" fill="#9DFFC0" font-size="12" font-weight="bold">Process</text>
-                    
-                    <!-- Filter System -->
-                    <rect x="350" y="100" width="80" height="80" rx="10" fill="url(#compGrad)" opacity="0.3" stroke="#50FF96" stroke-width="2" class="circuit-component" style="animation-delay: 0.4s"/>
-                    <text x="390" y="145" text-anchor="middle" fill="#9DFFC0" font-size="12" font-weight="bold">Filter</text>
-                    
-                    <!-- Control Unit -->
-                    <rect x="500" y="100" width="80" height="80" rx="10" fill="url(#compGrad)" opacity="0.3" stroke="#50FF96" stroke-width="2" class="circuit-component" style="animation-delay: 0.6s"/>
-                    <text x="540" y="145" text-anchor="middle" fill="#9DFFC0" font-size="12" font-weight="bold">Control</text>
-                    
-                    <!-- Output Display -->
-                    <rect x="650" y="100" width="80" height="80" rx="10" fill="url(#compGrad)" opacity="0.3" stroke="#50FF96" stroke-width="2" class="circuit-component" style="animation-delay: 0.8s"/>
-                    <text x="690" y="145" text-anchor="middle" fill="#9DFFC0" font-size="12" font-weight="bold">Display</text>
-                    
-                    <!-- Connection Lines -->
-                    <line x1="130" y1="140" x2="200" y2="140" stroke="#50FF96" stroke-width="2" stroke-dasharray="5,5" class="circuit-line"/>
-                    <line x1="280" y1="140" x2="350" y2="140" stroke="#50FF96" stroke-width="2" stroke-dasharray="5,5" class="circuit-line" style="animation-delay: 0.2s"/>
-                    <line x1="430" y1="140" x2="500" y2="140" stroke="#50FF96" stroke-width="2" stroke-dasharray="5,5" class="circuit-line" style="animation-delay: 0.4s"/>
-                    <line x1="580" y1="140" x2="650" y2="140" stroke="#50FF96" stroke-width="2" stroke-dasharray="5,5" class="circuit-line" style="animation-delay: 0.6s"/>
-                    
-                    <!-- Return Line -->
-                    <path d="M 90 100 Q 90 30, 690 30 Q 700 30, 700 40 L 700 100" stroke="#FF6464" stroke-width="2" fill="none" stroke-dasharray="5,5" class="return-line"/>
-                </svg>
+                <div class="circuit-image-wrapper">
+                    <img src="circuit-diagram.svg" alt="Emission Control Circuit Diagram" class="circuit-image">
+                </div>
                 
                 <div class="circuit-description">
-                    <h3>System Flow</h3>
+                    <h3>System Components</h3>
                     <div class="flow-steps">
                         <div class="flow-step">
                             <span class="step-num">1</span>
-                            <strong>Sensor Unit</strong> - Monitors air quality
+                            <div>
+                                <strong>Battery</strong> - DC power supply
+                            </div>
                         </div>
                         <div class="flow-step">
                             <span class="step-num">2</span>
-                            <strong>Processing</strong> - Analyzes data
+                            <div>
+                                <strong>Switch</strong> - Control activation
+                            </div>
                         </div>
                         <div class="flow-step">
                             <span class="step-num">3</span>
-                            <strong>Filtration</strong> - Removes pollutants
+                            <div>
+                                <strong>Motor</strong> - Drives suction/filtration
+                            </div>
                         </div>
                         <div class="flow-step">
                             <span class="step-num">4</span>
-                            <strong>Control</strong> - Manages operations
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">5</span>
-                            <strong>Display</strong> - Shows real-time data
+                            <div>
+                                <strong>Flow Control</strong> - Manages air intake
+                            </div>
                         </div>
                     </div>
                     
-                    <button class="main-btn" onclick="showSection('filtration')">Learn More →</button>
+                    <div class="system-info">
+                        <p><strong>How it works:</strong> Close the switch to activate the DC motor, which drives the suction mechanism for air filtration and emission control.</p>
+                    </div>
+                    
+                    <button class="main-btn" onclick="showSection('filtration')">Learn Filtration Process →</button>
                 </div>
             </div>
         </section>
@@ -368,6 +471,7 @@
                         <div class="prop"><strong>Molecular Weight:</strong> 44.01 g/mol</div>
                         <div class="prop"><strong>Atmospheric Level:</strong> 420+ ppm</div>
                         <div class="prop"><strong>Lifespan:</strong> 300-1000 years</div>
+                        <div class="prop"><strong>Density:</strong> 1.98 kg/m³</div>
                     </div>
                     <button class="main-btn" id="rotateButton">🔄 Rotate Model</button>
                 </div>
