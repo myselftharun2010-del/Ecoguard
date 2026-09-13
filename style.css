@@ -1342,8 +1342,7 @@ footer small {
     .navbar {
         top: 10px;
     }
-}
-/* ===== LOGIN MODAL ===== */
+   /* ===== LOGIN MODAL ===== */
 .login-modal {
     position: fixed;
     top: 0;
@@ -1576,4 +1575,5 @@ footer small {
 
 [data-theme="light"] .form-group input::placeholder {
     color: rgba(31,41,55,0.5);
+}
 }
