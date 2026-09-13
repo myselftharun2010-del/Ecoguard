@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EcoGuard - Carbon Capture & Climate Protection</title>
+    <title>EcoGuard | Carbon Awareness</title>
+
+    <meta
+        name="description"
+        content="EcoGuard - Learn about carbon emissions, greenhouse gases, carbon statistics and ways to protect our planet."
+    >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <header class="navbar">
 
@@ -24,36 +34,59 @@
         🌱 EcoGuard
     </div>
 
-    <nav class="nav-menu">
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+    >
+        ☰
+    </button>
 
-        <button class="nav-btn active" data-section="home">
+    <nav class="nav-menu" id="navMenu">
+
+        <button class="nav-btn active" type="button" data-section="home">
             Home
         </button>
 
-        <button class="nav-btn" data-section="about">
+        <button class="nav-btn" type="button" data-section="stats">
+            📊 Statistics
+        </button>
+
+        <button class="nav-btn" type="button" data-section="about">
             About
         </button>
 
-        <button class="nav-btn" data-section="gases">
+        <button class="nav-btn" type="button" data-section="gases">
             Gases
         </button>
 
-        <button class="nav-btn" data-section="circuit">
+        <button class="nav-btn" type="button" data-section="circuit">
             Circuit Diagram
         </button>
 
-        <button class="nav-btn" data-section="model">
+        <button class="nav-btn" type="button" data-section="model">
             3D Model
         </button>
 
-        <button class="nav-btn" data-section="prevention">
+        <button class="nav-btn" type="button" data-section="prevention">
             Prevention
+        </button>
+
+        <button class="nav-btn" type="button" data-section="calculator">
+            🧮 Calculator
         </button>
 
     </nav>
 
-    <button id="themeToggle" class="theme-toggle">
-        🌙
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle theme"
+    >
+        ☀️
     </button>
 
 </header>
@@ -61,7 +94,9 @@
 
 <main>
 
-<!-- ================= HOME ================= -->
+<!-- =========================================================
+     HOME
+========================================================= -->
 
 <section id="home" class="page-section active-section">
 
@@ -70,29 +105,37 @@
         <div class="hero-content">
 
             <p class="hero-tag">
-                🌍 PROTECTING OUR PLANET
+                🌍 PROTECT OUR PLANET
             </p>
 
             <h1>
-                Carbon Capture
-                <span>&</span>
-                Climate Protection
+                Understand.
+                <span>Reduce.</span>
+                Protect.
             </h1>
 
             <p class="hero-description">
-                Discover how technology, science and sustainable
-                practices can help reduce carbon emissions and
-                protect Earth's future.
+                EcoGuard helps you understand carbon emissions,
+                explore greenhouse gases and discover practical
+                ways to reduce your environmental impact.
             </p>
 
             <div class="hero-buttons">
 
-                <button class="primary-btn" data-section="about">
-                    Explore EcoGuard
+                <button
+                    class="primary-btn"
+                    type="button"
+                    data-section="stats"
+                >
+                    📊 View Statistics
                 </button>
 
-                <button class="secondary-btn" data-section="prevention">
-                    Prevention Tips
+                <button
+                    class="secondary-btn"
+                    type="button"
+                    data-section="calculator"
+                >
+                    🧮 Calculate Footprint
                 </button>
 
             </div>
@@ -102,23 +145,23 @@
     </div>
 
 
-    <!-- ================= FEATURES ================= -->
+    <!-- FEATURES -->
 
     <div class="section-container">
 
         <div class="section-heading">
 
             <p class="section-tag">
-                WHY IT MATTERS
+                ECOGUARD
             </p>
 
             <h2>
-                Understanding Carbon
+                Explore Our Platform
             </h2>
 
             <p>
-                Carbon emissions affect our atmosphere,
-                climate and future.
+                Learn about carbon emissions and discover
+                technology-based solutions for a cleaner future.
             </p>
 
         </div>
@@ -129,16 +172,16 @@
             <div class="feature-card">
 
                 <div class="feature-icon">
-                    🌡️
+                    📊
                 </div>
 
                 <h3>
-                    Global Warming
+                    Carbon Statistics
                 </h3>
 
                 <p>
-                    Greenhouse gases trap heat in Earth's
-                    atmosphere and increase global temperatures.
+                    Explore real-world carbon emission statistics
+                    from countries around the world.
                 </p>
 
             </div>
@@ -151,12 +194,12 @@
                 </div>
 
                 <h3>
-                    Carbon Emissions
+                    Greenhouse Gases
                 </h3>
 
                 <p>
-                    Human activities release large quantities
-                    of carbon dioxide into the atmosphere.
+                    Understand the major gases responsible for
+                    global warming and climate change.
                 </p>
 
             </div>
@@ -165,16 +208,16 @@
             <div class="feature-card">
 
                 <div class="feature-icon">
-                    🌳
+                    🌱
                 </div>
 
                 <h3>
-                    Natural Solutions
+                    Prevention
                 </h3>
 
                 <p>
-                    Forests, oceans and healthy ecosystems
-                    naturally absorb carbon dioxide.
+                    Learn simple actions that can help reduce
+                    carbon emissions.
                 </p>
 
             </div>
@@ -183,41 +226,52 @@
 
     </div>
 
+</section>
 
-    <!-- ================= CARBON STATISTICS ================= -->
 
-    <div class="section-container statistics-section">
+<!-- =========================================================
+     STATISTICS
+========================================================= -->
+
+<section id="stats" class="page-section">
+
+    <div class="section-container">
 
         <div class="section-heading">
 
             <p class="section-tag">
-                🌍 GLOBAL IMPACT
+                📊 REAL-WORLD DATA
             </p>
 
             <h2>
-                Real-World Carbon Statistics
+                Carbon Emission Statistics
             </h2>
 
             <p>
-                2024 territorial CO₂ emissions from fossil fuels
-                and industry.
+                Explore global and country-level carbon dioxide
+                emissions using real-world data.
             </p>
 
         </div>
 
 
-        <!-- TOP STATISTICS -->
+        <!-- GLOBAL STATISTICS -->
 
         <div class="stats-grid">
 
             <div class="stat-card">
 
-                <div class="stat-number">
-                    38.6B
+                <div
+                    class="stat-number counter"
+                    data-target="38.6"
+                >
+                    38.6
                 </div>
 
                 <p>
-                    Approximate global CO₂ emissions in 2024
+                    Global CO₂ emissions
+                    <br>
+                    billion tonnes per year
                 </p>
 
             </div>
@@ -225,12 +279,16 @@
 
             <div class="stat-card">
 
-                <div class="stat-number">
-                    31.84%
+                <div
+                    class="stat-number counter"
+                    data-target="31.84"
+                >
+                    31.84
                 </div>
 
                 <p>
-                    China's share of global CO₂ emissions
+                    China's share of
+                    global emissions
                 </p>
 
             </div>
@@ -238,12 +296,16 @@
 
             <div class="stat-card">
 
-                <div class="stat-number">
-                    12.71%
+                <div
+                    class="stat-number counter"
+                    data-target="12.71"
+                >
+                    12.71
                 </div>
 
                 <p>
-                    United States share of global CO₂ emissions
+                    USA's share of
+                    global emissions
                 </p>
 
             </div>
@@ -251,12 +313,16 @@
 
             <div class="stat-card">
 
-                <div class="stat-number">
-                    8.27%
+                <div
+                    class="stat-number counter"
+                    data-target="8.27"
+                >
+                    8.27
                 </div>
 
                 <p>
-                    India's share of global CO₂ emissions
+                    India's share of
+                    global emissions
                 </p>
 
             </div>
@@ -269,7 +335,7 @@
         <div class="country-statistics">
 
             <h3 class="statistics-title">
-                🌐 Major CO₂ Emitters — 2024
+                🌍 Country Carbon Emissions
             </h3>
 
 
@@ -279,13 +345,13 @@
 
                 <div class="country-header">
 
-                    <div class="country-name">
+                    <span class="country-name">
                         🇨🇳 China
-                    </div>
+                    </span>
 
-                    <div class="country-value">
-                        12.3B tonnes
-                    </div>
+                    <span class="country-value">
+                        12.3B tonnes · 31.84%
+                    </span>
 
                 </div>
 
@@ -293,31 +359,32 @@
 
                     <div
                         class="country-fill china-bar"
-                        style="width: 100%;">
-                    </div>
+                        style="width: 31.84%;"
+                    ></div>
 
                 </div>
 
-                <div class="country-details">
-                    31.84% of global CO₂ emissions
-                </div>
+                <p class="country-details">
+                    China has the largest share of global
+                    territorial CO₂ emissions.
+                </p>
 
             </div>
 
 
-            <!-- UNITED STATES -->
+            <!-- USA -->
 
             <div class="country-stat">
 
                 <div class="country-header">
 
-                    <div class="country-name">
+                    <span class="country-name">
                         🇺🇸 United States
-                    </div>
+                    </span>
 
-                    <div class="country-value">
-                        4.9B tonnes
-                    </div>
+                    <span class="country-value">
+                        4.9B tonnes · 12.71%
+                    </span>
 
                 </div>
 
@@ -325,14 +392,15 @@
 
                     <div
                         class="country-fill usa-bar"
-                        style="width: 39.84%;">
-                    </div>
+                        style="width: 12.71%;"
+                    ></div>
 
                 </div>
 
-                <div class="country-details">
-                    12.71% of global CO₂ emissions
-                </div>
+                <p class="country-details">
+                    The United States remains one of the world's
+                    largest contributors to CO₂ emissions.
+                </p>
 
             </div>
 
@@ -343,13 +411,13 @@
 
                 <div class="country-header">
 
-                    <div class="country-name">
+                    <span class="country-name">
                         🇮🇳 India
-                    </div>
+                    </span>
 
-                    <div class="country-value">
-                        3.19B tonnes
-                    </div>
+                    <span class="country-value">
+                        3.19B tonnes · 8.27%
+                    </span>
 
                 </div>
 
@@ -357,14 +425,15 @@
 
                     <div
                         class="country-fill india-bar"
-                        style="width: 25.98%;">
-                    </div>
+                        style="width: 8.27%;"
+                    ></div>
 
                 </div>
 
-                <div class="country-details">
-                    8.27% of global CO₂ emissions
-                </div>
+                <p class="country-details">
+                    India's emissions are strongly connected
+                    to energy demand and development.
+                </p>
 
             </div>
 
@@ -375,13 +444,13 @@
 
                 <div class="country-header">
 
-                    <div class="country-name">
+                    <span class="country-name">
                         🇷🇺 Russia
-                    </div>
+                    </span>
 
-                    <div class="country-value">
-                        1.78B tonnes
-                    </div>
+                    <span class="country-value">
+                        1.78B tonnes · 4.61%
+                    </span>
 
                 </div>
 
@@ -389,14 +458,15 @@
 
                     <div
                         class="country-fill russia-bar"
-                        style="width: 14.47%;">
-                    </div>
+                        style="width: 4.61%;"
+                    ></div>
 
                 </div>
 
-                <div class="country-details">
-                    4.61% of global CO₂ emissions
-                </div>
+                <p class="country-details">
+                    Russia is another major contributor to
+                    global territorial CO₂ emissions.
+                </p>
 
             </div>
 
@@ -407,13 +477,13 @@
 
                 <div class="country-header">
 
-                    <div class="country-name">
+                    <span class="country-name">
                         🇯🇵 Japan
-                    </div>
+                    </span>
 
-                    <div class="country-value">
-                        2.49% global share
-                    </div>
+                    <span class="country-value">
+                        2.49% of global emissions
+                    </span>
 
                 </div>
 
@@ -421,14 +491,15 @@
 
                     <div
                         class="country-fill japan-bar"
-                        style="width: 7.82%;">
-                    </div>
+                        style="width: 2.49%;"
+                    ></div>
 
                 </div>
 
-                <div class="country-details">
-                    Japan accounted for 2.49% of global CO₂ emissions.
-                </div>
+                <p class="country-details">
+                    Japan has a significant industrial and
+                    energy-related carbon footprint.
+                </p>
 
             </div>
 
@@ -439,13 +510,13 @@
 
                 <div class="country-header">
 
-                    <div class="country-name">
+                    <span class="country-name">
                         🇧🇷 Brazil
-                    </div>
+                    </span>
 
-                    <div class="country-value">
+                    <span class="country-value">
                         Major emitter
-                    </div>
+                    </span>
 
                 </div>
 
@@ -453,15 +524,15 @@
 
                     <div
                         class="country-fill brazil-bar"
-                        style="width: 7%;">
-                    </div>
+                        style="width: 3%;"
+                    ></div>
 
                 </div>
 
-                <div class="country-details">
-                    Brazil is a significant greenhouse-gas emitter,
-                    particularly when land-use emissions are considered.
-                </div>
+                <p class="country-details">
+                    Brazil is a major emitter, with emissions
+                    influenced by land-use change and energy.
+                </p>
 
             </div>
 
@@ -553,8 +624,9 @@
 
         <p class="statistics-source">
 
-            Source: Our World in Data — Global Carbon Budget (2025).
-            Data shown for 2024 territorial CO₂ emissions.
+            Source:
+            Our World in Data — Global Carbon Budget (2025).
+            Values represent 2024 territorial CO₂ emissions.
 
         </p>
 
@@ -563,7 +635,9 @@
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
 <section id="about" class="page-section">
 
@@ -576,13 +650,12 @@
             </p>
 
             <h2>
-                Protecting Our Future
+                Why Carbon Awareness Matters
             </h2>
 
             <p>
-                EcoGuard explains carbon emissions,
-                carbon capture technology and practical
-                ways to protect our environment.
+                Understanding carbon emissions is the first step
+                towards creating a cleaner and more sustainable future.
             </p>
 
         </div>
@@ -597,12 +670,12 @@
                 </div>
 
                 <h3>
-                    Our Planet
+                    Climate
                 </h3>
 
                 <p>
-                    Earth depends on a balanced atmosphere.
-                    Excess greenhouse gases disturb this balance.
+                    Excess greenhouse gases trap heat in the
+                    atmosphere and contribute to climate change.
                 </p>
 
             </div>
@@ -611,16 +684,16 @@
             <div class="info-card">
 
                 <div class="info-icon">
-                    🧪
+                    🏭
                 </div>
 
                 <h3>
-                    Science
+                    Industry
                 </h3>
 
                 <p>
-                    Understanding greenhouse gases helps us
-                    develop better climate solutions.
+                    Energy production and industrial activity
+                    contribute significantly to global emissions.
                 </p>
 
             </div>
@@ -629,16 +702,16 @@
             <div class="info-card">
 
                 <div class="info-icon">
-                    💚
+                    🌱
                 </div>
 
                 <h3>
-                    Our Responsibility
+                    Sustainability
                 </h3>
 
                 <p>
-                    Everyone can contribute by reducing waste,
-                    saving energy and choosing sustainable options.
+                    Small changes in everyday behaviour can help
+                    reduce environmental impact.
                 </p>
 
             </div>
@@ -650,7 +723,9 @@
 </section>
 
 
-<!-- ================= GASES ================= -->
+<!-- =========================================================
+     GASES
+========================================================= -->
 
 <section id="gases" class="page-section">
 
@@ -659,16 +734,16 @@
         <div class="section-heading">
 
             <p class="section-tag">
-                GREENHOUSE GASES
+                🌫️ GREENHOUSE GASES
             </p>
 
             <h2>
-                Know the Major Gases
+                Major Greenhouse Gases
             </h2>
 
             <p>
-                Different greenhouse gases have different
-                sources and environmental effects.
+                Different gases contribute to the greenhouse
+                effect in different ways.
             </p>
 
         </div>
@@ -679,7 +754,7 @@
             <div class="gas-card">
 
                 <div class="gas-icon">
-                    🟢
+                    🌫️
                 </div>
 
                 <h3>
@@ -687,8 +762,8 @@
                 </h3>
 
                 <p>
-                    CO₂ is mainly produced by fossil fuel
-                    combustion, industry and deforestation.
+                    CO₂ is released mainly through fossil fuel
+                    combustion, industry and land-use change.
                 </p>
 
             </div>
@@ -697,7 +772,7 @@
             <div class="gas-card">
 
                 <div class="gas-icon">
-                    🔵
+                    🐄
                 </div>
 
                 <h3>
@@ -705,8 +780,8 @@
                 </h3>
 
                 <p>
-                    CH₄ comes from agriculture, livestock,
-                    landfills and fossil fuel production.
+                    CH₄ is associated with agriculture, livestock,
+                    waste and fossil fuel production.
                 </p>
 
             </div>
@@ -715,7 +790,7 @@
             <div class="gas-card">
 
                 <div class="gas-icon">
-                    🟣
+                    🌾
                 </div>
 
                 <h3>
@@ -723,8 +798,8 @@
                 </h3>
 
                 <p>
-                    N₂O is associated with agriculture,
-                    fertilizers and industrial processes.
+                    N₂O is released from agricultural activities,
+                    fertilisers and several industrial processes.
                 </p>
 
             </div>
@@ -733,7 +808,7 @@
             <div class="gas-card">
 
                 <div class="gas-icon">
-                    🟠
+                    ☁️
                 </div>
 
                 <h3>
@@ -741,8 +816,8 @@
                 </h3>
 
                 <p>
-                    Water vapour is a natural greenhouse gas
-                    that plays an important role in Earth's climate.
+                    Water vapour is a naturally occurring greenhouse
+                    gas and plays an important role in climate feedback.
                 </p>
 
             </div>
@@ -754,7 +829,9 @@
 </section>
 
 
-<!-- ================= CIRCUIT ================= -->
+<!-- =========================================================
+     CIRCUIT DIAGRAM
+========================================================= -->
 
 <section id="circuit" class="page-section">
 
@@ -763,16 +840,16 @@
         <div class="section-heading">
 
             <p class="section-tag">
-                CARBON CAPTURE SYSTEM
+                ⚡ TECHNOLOGY
             </p>
 
             <h2>
-                Circuit Diagram
+                Carbon Monitoring Circuit
             </h2>
 
             <p>
-                A simplified representation of a carbon
-                capture and filtration system.
+                A conceptual circuit for monitoring environmental
+                conditions and carbon-related information.
             </p>
 
         </div>
@@ -784,7 +861,7 @@
 
                 <img
                     src="circuit-diagram.svg"
-                    alt="Carbon Capture Circuit Diagram"
+                    alt="EcoGuard Carbon Monitoring Circuit Diagram"
                 >
 
             </div>
@@ -797,27 +874,27 @@
                 </h3>
 
                 <p>
-                    Carbon-rich gases enter the system and
-                    pass through several stages of filtration
-                    and carbon capture.
+                    Sensors collect environmental information,
+                    which can then be processed and displayed
+                    for monitoring.
                 </p>
 
                 <ul>
 
                     <li>
-                        🌫️ Gas enters the system
+                        🌡️ Environmental sensing
                     </li>
 
                     <li>
-                        🧪 Carbon capture stage
+                        📡 Sensor data collection
                     </li>
 
                     <li>
-                        💧 Filtration
+                        💻 Data processing
                     </li>
 
                     <li>
-                        🌱 Cleaner gas output
+                        📊 Information display
                     </li>
 
                 </ul>
@@ -831,7 +908,9 @@
 </section>
 
 
-<!-- ================= 3D MODEL ================= -->
+<!-- =========================================================
+     3D MODEL
+========================================================= -->
 
 <section id="model" class="page-section">
 
@@ -840,16 +919,16 @@
         <div class="section-heading">
 
             <p class="section-tag">
-                TECHNOLOGY
+                🧩 3D MODEL
             </p>
 
             <h2>
-                Carbon Capture 3D Model
+                EcoGuard Model
             </h2>
 
             <p>
-                Explore the carbon capture process through
-                an interactive model.
+                Explore the EcoGuard model and understand
+                its components.
             </p>
 
         </div>
@@ -859,9 +938,15 @@
 
             <div class="model-video">
 
-                <video controls>
+                <video
+                    controls
+                    preload="metadata"
+                >
 
-                    <source src="3.mp4" type="video/mp4">
+                    <source
+                        src="3.mp4"
+                        type="video/mp4"
+                    >
 
                     Your browser does not support video playback.
 
@@ -873,30 +958,42 @@
             <div class="model-info">
 
                 <h3>
-                    Carbon Capture Process
+                    Inside the Model
                 </h3>
 
                 <p>
-                    Carbon capture systems separate carbon
-                    dioxide from industrial gases before it
-                    reaches the atmosphere.
+                    This model demonstrates the concept behind
+                    environmental monitoring and carbon awareness.
                 </p>
 
                 <div class="model-points">
 
                     <div>
-                        <strong>01</strong>
-                        Capture
+                        🔬
+                        <strong>
+                            Sensors
+                        </strong>
                     </div>
 
                     <div>
-                        <strong>02</strong>
-                        Transport
+                        📡
+                        <strong>
+                            Data collection
+                        </strong>
                     </div>
 
                     <div>
-                        <strong>03</strong>
-                        Storage
+                        💻
+                        <strong>
+                            Processing
+                        </strong>
+                    </div>
+
+                    <div>
+                        📊
+                        <strong>
+                            Monitoring
+                        </strong>
                     </div>
 
                 </div>
@@ -910,7 +1007,9 @@
 </section>
 
 
-<!-- ================= PREVENTION ================= -->
+<!-- =========================================================
+     PREVENTION
+========================================================= -->
 
 <section id="prevention" class="page-section">
 
@@ -919,16 +1018,15 @@
         <div class="section-heading">
 
             <p class="section-tag">
-                TAKE ACTION
+                🌿 TAKE ACTION
             </p>
 
             <h2>
-                Prevent Carbon Emissions
+                Carbon Prevention
             </h2>
 
             <p>
-                Small changes in our daily lives can help
-                reduce greenhouse gas emissions.
+                Simple choices can make a meaningful difference.
             </p>
 
         </div>
@@ -939,16 +1037,16 @@
             <div class="prevention-card">
 
                 <div class="prevention-icon">
-                    💡
+                    🚲
                 </div>
 
                 <h3>
-                    Save Energy
+                    Use Public Transport
                 </h3>
 
                 <p>
-                    Turn off unused lights and appliances
-                    and choose energy-efficient devices.
+                    Choose public transport, cycling or walking
+                    whenever possible.
                 </p>
 
             </div>
@@ -957,16 +1055,16 @@
             <div class="prevention-card">
 
                 <div class="prevention-icon">
-                    🚲
+                    ⚡
                 </div>
 
                 <h3>
-                    Sustainable Transport
+                    Save Energy
                 </h3>
 
                 <p>
-                    Walk, cycle, use public transport or
-                    share rides whenever possible.
+                    Switch off unused electrical appliances and
+                    use energy-efficient devices.
                 </p>
 
             </div>
@@ -979,12 +1077,12 @@
                 </div>
 
                 <h3>
-                    Protect Forests
+                    Protect Trees
                 </h3>
 
                 <p>
-                    Protect forests and plant trees to
-                    increase natural carbon absorption.
+                    Trees absorb carbon dioxide and support
+                    healthy ecosystems.
                 </p>
 
             </div>
@@ -1001,8 +1099,8 @@
                 </h3>
 
                 <p>
-                    Reduce, reuse and recycle materials
-                    instead of sending them to landfills.
+                    Reduce, reuse and recycle materials whenever
+                    possible.
                 </p>
 
             </div>
@@ -1011,16 +1109,16 @@
             <div class="prevention-card">
 
                 <div class="prevention-icon">
-                    ☀️
+                    🥗
                 </div>
 
                 <h3>
-                    Clean Energy
+                    Sustainable Food
                 </h3>
 
                 <p>
-                    Support renewable energy sources such
-                    as solar and wind power.
+                    Choose more sustainable food options and
+                    reduce unnecessary food waste.
                 </p>
 
             </div>
@@ -1029,16 +1127,16 @@
             <div class="prevention-card">
 
                 <div class="prevention-icon">
-                    📢
+                    💧
                 </div>
 
                 <h3>
-                    Spread Awareness
+                    Save Resources
                 </h3>
 
                 <p>
-                    Educate others about climate change
-                    and encourage sustainable habits.
+                    Use water and other natural resources
+                    responsibly.
                 </p>
 
             </div>
@@ -1046,7 +1144,7 @@
         </div>
 
 
-        <!-- ================= AI CARBON ANALYZER ================= -->
+        <!-- AI CARBON ANALYZER -->
 
         <div class="prevention-ai-box">
 
@@ -1065,9 +1163,323 @@
 
             <a
                 href="ai-carbon-analyzer.html"
-                class="carbon-ai-button">
+                class="carbon-ai-button"
+            >
                 🤖 Open AI Carbon Analyzer
             </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CALCULATOR
+========================================================= -->
+
+<section id="calculator" class="page-section">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <p class="section-tag">
+                🧮 CARBON CALCULATOR
+            </p>
+
+            <h2>
+                Calculate Your Carbon Footprint
+            </h2>
+
+            <p>
+                Adjust the sliders to estimate your approximate
+                monthly carbon footprint.
+            </p>
+
+        </div>
+
+
+        <div class="calculator-grid">
+
+
+            <!-- INPUT PANEL -->
+
+            <div class="calculator-panel">
+
+                <h3>
+                    Monthly Activities
+                </h3>
+
+                <p class="calculator-subtitle">
+                    Enter approximate values for your normal
+                    monthly activities.
+                </p>
+
+
+                <!-- DRIVING -->
+
+                <div class="calculator-field">
+
+                    <label for="carbonCar">
+
+                        <span>
+                            🚗 Driving
+                        </span>
+
+                        <output id="carbonCarOut">
+                            400 km
+                        </output>
+
+                    </label>
+
+                    <input
+                        type="range"
+                        id="carbonCar"
+                        min="0"
+                        max="1500"
+                        value="400"
+                        step="10"
+                    >
+
+                </div>
+
+
+                <!-- ELECTRICITY -->
+
+                <div class="calculator-field">
+
+                    <label for="carbonPower">
+
+                        <span>
+                            ⚡ Home Electricity
+                        </span>
+
+                        <output id="carbonPowerOut">
+                            180 kWh
+                        </output>
+
+                    </label>
+
+                    <input
+                        type="range"
+                        id="carbonPower"
+                        min="0"
+                        max="800"
+                        value="180"
+                        step="10"
+                    >
+
+                </div>
+
+
+                <!-- MEALS -->
+
+                <div class="calculator-field">
+
+                    <label for="carbonMeals">
+
+                        <span>
+                            🍖 Meat-based Meals
+                        </span>
+
+                        <output id="carbonMealsOut">
+                            12 meals
+                        </output>
+
+                    </label>
+
+                    <input
+                        type="range"
+                        id="carbonMeals"
+                        min="0"
+                        max="60"
+                        value="12"
+                        step="1"
+                    >
+
+                </div>
+
+
+                <!-- FLIGHTS -->
+
+                <div class="calculator-field">
+
+                    <label for="carbonFlights">
+
+                        <span>
+                            ✈️ Short Flights
+                        </span>
+
+                        <output id="carbonFlightsOut">
+                            0 flights
+                        </output>
+
+                    </label>
+
+                    <input
+                        type="range"
+                        id="carbonFlights"
+                        min="0"
+                        max="6"
+                        value="0"
+                        step="1"
+                    >
+
+                </div>
+
+
+                <p class="calculator-note">
+
+                    Estimated factors:
+                    driving 0.19 kg CO₂/km,
+                    electricity 0.42 kg CO₂/kWh,
+                    meat-based meal 2.5 kg CO₂,
+                    short flight 255 kg CO₂.
+
+                </p>
+
+            </div>
+
+
+            <!-- RESULT PANEL -->
+
+            <div class="carbon-result-card">
+
+                <p class="calculator-eyebrow">
+                    ESTIMATED MONTHLY FOOTPRINT
+                </p>
+
+
+                <div class="carbon-total">
+
+                    <span id="carbonTotal">
+                        0.0
+                    </span>
+
+                    <small>
+                        kg CO₂
+                    </small>
+
+                </div>
+
+
+                <p
+                    class="carbon-comparison"
+                    id="carbonComparison"
+                >
+                    Calculating...
+                </p>
+
+
+                <!-- CATEGORY BARS -->
+
+                <div class="carbon-bars">
+
+
+                    <!-- TRANSPORT -->
+
+                    <div class="carbon-bar-row">
+
+                        <div class="carbon-bar-label">
+
+                            <span>
+                                🚗 Transport
+                            </span>
+
+                            <span id="carbonTransportVal">
+                                0.0 kg
+                            </span>
+
+                        </div>
+
+                        <div class="carbon-track">
+
+                            <div
+                                id="carbonTransportBar"
+                                class="carbon-fill transport-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ENERGY -->
+
+                    <div class="carbon-bar-row">
+
+                        <div class="carbon-bar-label">
+
+                            <span>
+                                ⚡ Energy
+                            </span>
+
+                            <span id="carbonEnergyVal">
+                                0.0 kg
+                            </span>
+
+                        </div>
+
+                        <div class="carbon-track">
+
+                            <div
+                                id="carbonEnergyBar"
+                                class="carbon-fill energy-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FOOD -->
+
+                    <div class="carbon-bar-row">
+
+                        <div class="carbon-bar-label">
+
+                            <span>
+                                🍖 Food
+                            </span>
+
+                            <span id="carbonFoodVal">
+                                0.0 kg
+                            </span>
+
+                        </div>
+
+                        <div class="carbon-track">
+
+                            <div
+                                id="carbonFoodBar"
+                                class="carbon-fill food-fill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECOMMENDATION -->
+
+                <div class="carbon-tips">
+
+                    <h3 id="carbonTipTitle">
+                        🌱 Start Exploring
+                    </h3>
+
+                    <p id="carbonTipText">
+                        Your largest emission category will
+                        appear here with a practical recommendation.
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -1078,27 +1490,33 @@
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer class="footer">
 
-    <div class="footer-content">
+    <h3>
+        🌱 EcoGuard
+    </h3>
 
-        <h3>
-            🌱 EcoGuard
-        </h3>
+    <p>
+        Understanding carbon today for a cleaner tomorrow.
+    </p>
 
-        <p>
-            Building a cleaner and greener future.
-        </p>
-
-        <p class="copyright">
-            © 2026 EcoGuard. All rights reserved.
-        </p>
-
-    </div>
+    <p class="copyright">
+        © 2026 EcoGuard. All rights reserved.
+    </p>
 
 </footer>
+
+
+<!-- Optional click sound.
+     You can add clickSound.mp3 later if desired. -->
+
+<audio id="clickSound" preload="auto">
+    <source src="clickSound.mp3" type="audio/mpeg">
+</audio>
 
 
 <script src="script.js"></script>
