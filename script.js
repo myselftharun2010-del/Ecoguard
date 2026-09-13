@@ -369,3 +369,10 @@ initLogin();
 console.log("loginModal:", document.getElementById("loginModal"));
 console.log("loginForm:", document.getElementById("loginForm"));
 console.log("profileBtn:", document.getElementById("profileBtn"));
+document.getElementById("loginForm").dispatchEvent(new** in the second field
+3. **Click "Enter EcoGuard"** button
+4. Your dataEnter EcoGuard"** button
+4. **Tell me what happens** - Does it:
+   - Hide CODE HERE !!!"**
+
+This means the login **HTML code was added correctly Event('submit'));
