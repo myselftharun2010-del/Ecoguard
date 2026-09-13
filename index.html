@@ -447,80 +447,36 @@
             </div>
         </section>
         
-       <!-- ================= 3D MODEL ================= -->
-<section id="model" class="page-section">
-    <div class="section-title">
-        <p class="section-tag">INTERACTIVE SECTION</p>
-        <h2>3D Model & Video</h2>
-        <p>Interactive 3D visualization and educational video content about carbon emissions and climate action.</p>
-    </div>
-    
-    <!-- Video Section -->
-    <div class="video-section">
-        <h3 class="section-subtitle">📹 Educational Video</h3>
-        <div class="video-container">
-            <video width="100%" controls>
-                <source src="https://raw.githubusercontent.com/myselftharun2010-del/Ecoguard/main/3.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-
-    <!-- Divider -->
-    <div class="section-divider"></div>
-
-    <!-- 3D Viewer Box -->
-    <div class="viewer-box">
-        <div class="loading" id="loading">Loading 3D Model...</div>
-        
-        <model-viewer
-            id="modelViewer"
-            src="model.glb"
-            alt="Interactive 3D Model"
-            camera-controls
-            auto-rotate
-            rotation-per-second="20deg"
-            shadow-intensity="1"
-            exposure="1"
-            camera-orbit="0deg 75deg 105%"
-            field-of-view="30deg"
-            environment-image="neutral"
-            interaction-prompt="auto"
-            touch-action="pan-y">
-        </model-viewer>
-        
-        <!-- Controls -->
-        <div class="controls">
-            <button onclick="resetCamera()">🎯 Reset View</button>
-            <button onclick="toggleRotation()">🔄 Auto Rotate</button>
-            <button onclick="toggleFullscreen()">⛶ Fullscreen</button>
-        </div>
-    </div>
-    
-    <!-- Upload New Model -->
-    <div class="upload-section">
-        <label class="upload-label" for="fileInput">
-            📁 Upload GLB / GLTF Model
-        </label>
-        <input id="fileInput" type="file" accept=".glb,.gltf">
-    </div>
-    
-    <!-- Info Cards -->
-    <div class="model-info-grid">
-        <div class="model-info-card">
-            <h3>🔄 ROTATE</h3>
-            <p>Click and drag to rotate the model around different angles.</p>
-        </div>
-        <div class="model-info-card">
-            <h3>🔍 ZOOM</h3>
-            <p>Use your mouse wheel or trackpad to zoom in and inspect.</p>
-        </div>
-        <div class="model-info-card">
-            <h3>⚡ INTERACTIVE</h3>
-            <p>View 3D models directly in your browser without software.</p>
-        </div>
-    </div>
-</section>
+        <!-- ================= 3D MODEL ================= -->
+        <section id="model" class="page-section">
+            <div class="section-title">
+                <p class="section-tag">INTERACTIVE SECTION</p>
+                <h2>Carbon Molecule Model</h2>
+                <p>A visual representation of a carbon dioxide molecule.</p>
+            </div>
+            
+            <div class="model-container">
+                <div class="molecule">
+                    <div class="atom oxygen">O</div>
+                    <div class="bond"></div>
+                    <div class="atom carbon">C</div>
+                    <div class="bond"></div>
+                    <div class="atom oxygen">O</div>
+                </div>
+                
+                <div class="model-info">
+                    <h3>Carbon Dioxide — CO₂</h3>
+                    <p>This visual model represents one carbon atom connected to two oxygen atoms. This molecule is the primary greenhouse gas responsible for climate change.</p>
+                    <div class="molecule-props">
+                        <div class="prop"><strong>Molecular Weight:</strong> 44.01 g/mol</div>
+                        <div class="prop"><strong>Atmospheric Level:</strong> 420+ ppm</div>
+                        <div class="prop"><strong>Lifespan:</strong> 300-1000 years</div>
+                        <div class="prop"><strong>Density:</strong> 1.98 kg/m³</div>
+                    </div>
+                    <button class="main-btn" id="rotateButton">🔄 Rotate Model</button>
+                </div>
+            </div>
+        </section>
         
         <!-- ================= FILTRATION ================= -->
         <section id="filtration" class="page-section">
