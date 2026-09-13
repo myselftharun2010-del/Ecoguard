@@ -366,3 +366,6 @@ function updateAllUsersOnLogin(userData) {
 // Initialize login system when page loads
 initLogin();
 );
+console.log("loginModal:", document.getElementById("loginModal"));
+console.log("loginForm:", document.getElementById("loginForm"));
+console.log("profileBtn:", document.getElementById("profileBtn"));
