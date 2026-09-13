@@ -360,6 +360,7 @@ function updateAllUsersOnLogin(userData) {
         allUsers.push(userData);
         localStorage.setItem("ecoguard_all_users", JSON.stringify(allUsers));
     }
+    
 }
 
 // Initialize login system when page loads
