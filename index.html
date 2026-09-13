@@ -3,577 +3,1757 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoGuard | Carbon Emission Awareness</title>
-    
+
+    <title>EcoGuard AI Prevention Advisor</title>
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =================================================
+           GLOBAL
+        ================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #72ff68;
+            --green-2: #a8ff78;
+            --cyan: #36f5d0;
+
+            --dark: #01110e;
+            --dark-2: #02241d;
+
+            --white: #ffffff;
+            --muted: #b8d3cc;
+
+            --glass: rgba(3, 42, 35, 0.72);
+
+            --border: rgba(100, 255, 170, 0.40);
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: "Inter", sans-serif;
+
+            color: var(--white);
+
+            overflow-x: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(90, 255, 120, 0.20),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 10% 90%,
+                    rgba(0, 240, 190, 0.15),
+                    transparent 32%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #010b09,
+                    #01221b 50%,
+                    #001511
+                );
+
+            position: relative;
+        }
+
+
+        /* =================================================
+           CINEMATIC BACKGROUND
+        ================================================= */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -3;
+
+            background:
+
+                linear-gradient(
+                    rgba(0, 15, 12, 0.30),
+                    rgba(0, 12, 10, 0.78)
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* Large atmospheric glow */
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 650px;
+            height: 650px;
+
+            right: -250px;
+            top: -250px;
+
+            border-radius: 50%;
+
+            background: rgba(85, 255, 110, 0.16);
+
+            filter: blur(130px);
+
+            z-index: -2;
+
+            animation: backgroundGlow 8s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes backgroundGlow {
+
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: .45;
+            }
+
+            100% {
+                transform: translate(-100px, 100px) scale(1.2);
+                opacity: .9;
+            }
+        }
+
+
+        /* =================================================
+           FLOATING PARTICLES
+        ================================================= */
+
+        .particles {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: -1;
+
+            overflow: hidden;
+        }
+
+
+        .particle {
+
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 12px var(--green);
+
+            opacity: .5;
+
+            animation: particleMove linear infinite;
+        }
+
+
+        .particle:nth-child(1) {
+            left: 8%;
+            animation-duration: 12s;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(2) {
+            left: 20%;
+            animation-duration: 17s;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(3) {
+            left: 35%;
+            animation-duration: 14s;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            left: 52%;
+            animation-duration: 19s;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(5) {
+            left: 70%;
+            animation-duration: 15s;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(6) {
+            left: 87%;
+            animation-duration: 18s;
+            animation-delay: 5s;
+        }
+
+
+        @keyframes particleMove {
+
+            0% {
+                top: 110%;
+                transform: translateX(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: .5;
+            }
+
+            80% {
+                opacity: .5;
+            }
+
+            100% {
+                top: -10%;
+                transform: translateX(80px);
+                opacity: 0;
+            }
+        }
+
+
+        /* =================================================
+           MAIN CARD
+        ================================================= */
+
+        .ai-advisor {
+
+            width: min(1120px, 92%);
+
+            margin: 70px auto;
+
+            padding: 48px;
+
+            position: relative;
+
+            border-radius: 32px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(7, 66, 54, .78),
+                    rgba(2, 29, 25, .78)
+                );
+
+            border: 1px solid var(--border);
+
+            backdrop-filter: blur(25px);
+
+            -webkit-backdrop-filter: blur(25px);
+
+            box-shadow:
+
+                0 30px 100px rgba(0, 0, 0, .65),
+
+                0 0 80px rgba(80, 255, 130, .10);
+
+            overflow: hidden;
+        }
+
+
+        /* Animated shine */
+
+        .ai-advisor::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            top: -300px;
+            left: -200px;
+
+            background: rgba(100, 255, 130, .10);
+
+            border-radius: 50%;
+
+            filter: blur(80px);
+
+            animation: cardGlow 7s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes cardGlow {
+
+            to {
+                transform: translate(800px, 500px);
+            }
+        }
+
+
+        /* =================================================
+           HEADER
+        ================================================= */
+
+        .advisor-heading {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-bottom: 42px;
+        }
+
+
+        .robot-icon {
+
+            width: 60px;
+            height: 60px;
+
+            flex-shrink: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 18px;
+
+            font-size: 29px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(100, 255, 120, .22),
+                    rgba(0, 255, 200, .07)
+                );
+
+            border: 1px solid rgba(100, 255, 150, .45);
+
+            box-shadow:
+
+                0 0 30px rgba(100, 255, 120, .18);
+
+            animation: robotPulse 3s ease-in-out infinite;
+        }
+
+
+        @keyframes robotPulse {
+
+            0%,100% {
+                box-shadow:
+                    0 0 20px rgba(100,255,120,.12);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 40px rgba(100,255,120,.35);
+            }
+        }
+
+
+        .section-tag {
+
+            color: var(--green);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+
+        .advisor-heading h1 {
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: clamp(32px, 5vw, 52px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .ai-text {
+
+            color: var(--green);
+
+            text-shadow:
+                0 0 20px rgba(100, 255, 100, .4);
+        }
+
+
+        .description {
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            max-width: 800px;
+        }
+
+
+        /* =================================================
+           CONTENT
+        ================================================= */
+
+        .advisor-content {
+
+            display: grid;
+
+            grid-template-columns: 1.35fr .65fr;
+
+            gap: 40px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =================================================
+           FORM
+        ================================================= */
+
+        .form-area {
+
+            padding-right: 20px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 25px;
+        }
+
+
+        label {
+
+            display: block;
+
+            color: #eafff2;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            margin-bottom: 10px;
+        }
+
+
+        select,
+        textarea {
+
+            width: 100%;
+
+            border: 1px solid rgba(90, 255, 170, .35);
+
+            border-radius: 16px;
+
+            background: rgba(0, 15, 13, .65);
+
+            color: white;
+
+            outline: none;
+
+            font-family: "Inter", sans-serif;
+
+            transition: .3s ease;
+        }
+
+
+        select {
+
+            height: 58px;
+
+            padding: 0 18px;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+
+        textarea {
+
+            min-height: 155px;
+
+            padding: 18px;
+
+            resize: vertical;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        textarea::placeholder {
+
+            color: #76968f;
+        }
+
+
+        select:focus,
+        textarea:focus {
+
+            border-color: var(--green);
+
+            box-shadow:
+
+                0 0 0 3px rgba(100,255,100,.08),
+
+                0 0 30px rgba(70,255,150,.13);
+        }
+
+
+        /* =================================================
+           AI STATUS
+        ================================================= */
+
+        .ai-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-top: 12px;
+
+            color: #8eaea6;
+
+            font-size: 12px;
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 10px var(--green);
+
+            animation: statusBlink 1.5s infinite;
+        }
+
+
+        @keyframes statusBlink {
+
+            50% {
+                opacity: .25;
+            }
+        }
+
+
+        /* =================================================
+           INNOVATIVE BUTTON
+        ================================================= */
+
+        .main-btn {
+
+            width: 330px;
+
+            max-width: 100%;
+
+            height: 66px;
+
+            border: 1px solid rgba(200,255,170,.7);
+
+            border-radius: 50px;
+
+            padding: 6px 7px 6px 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            cursor: pointer;
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            color: #05200f;
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    #4cff6c,
+                    #b0ff7c,
+                    #43f5bd
+                );
+
+            box-shadow:
+
+                0 0 25px rgba(80,255,100,.25),
+
+                0 12px 30px rgba(0,0,0,.35);
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: .35s ease;
+        }
+
+
+        .main-btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 80px;
+            height: 180px;
+
+            left: -120px;
+            top: -60px;
+
+            background: rgba(255,255,255,.7);
+
+            transform: rotate(25deg);
+
+            filter: blur(15px);
+
+            transition: .7s ease;
+        }
+
+
+        .main-btn:hover {
+
+            transform: translateY(-4px) scale(1.02);
+
+            box-shadow:
+
+                0 0 45px rgba(80,255,100,.42),
+
+                0 18px 40px rgba(0,0,0,.4);
+        }
+
+
+        .main-btn:hover::before {
+
+            left: 120%;
+        }
+
+
+        .button-text {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .button-arrow {
+
+            width: 52px;
+            height: 52px;
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            background: #06392d;
+
+            color: white;
+
+            font-size: 25px;
+
+            position: relative;
+
+            z-index: 2;
+
+            transition: .35s ease;
+        }
+
+
+        .main-btn:hover .button-arrow {
+
+            transform: rotate(-45deg);
+
+            background: #021f18;
+        }
+
+
+        /* =================================================
+           ECO VISUAL
+        ================================================= */
+
+        .eco-visual {
+
+            min-height: 390px;
+
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-left: 1px solid rgba(100,255,180,.16);
+        }
+
+
+        .eco-title {
+
+            position: absolute;
+
+            top: 15px;
+
+            text-align: center;
+
+            color: var(--green-2);
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 18px;
+
+            line-height: 1.3;
+
+            text-shadow:
+                0 0 15px rgba(100,255,100,.45);
+        }
+
+
+        .eco-title strong {
+
+            display: block;
+
+            color: white;
+
+            font-size: 27px;
+        }
+
+
+        /* =================================================
+           EARTH
+        ================================================= */
+
+        .earth-glow {
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            background: rgba(80,255,100,.17);
+
+            filter: blur(55px);
+
+            animation: earthGlow 3s ease-in-out infinite;
+        }
+
+
+        @keyframes earthGlow {
+
+            0%,100% {
+                transform: scale(.9);
+                opacity: .5;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: .9;
+            }
+        }
+
+
+        .earth {
+
+            width: 185px;
+            height: 185px;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            z-index: 2;
+
+            background:
+
+                radial-gradient(
+                    circle at 32% 27%,
+                    #b8ff83,
+                    #42ce76 22%,
+                    #087e70 52%,
+                    #033c42 73%,
+                    #001916 100%
+                );
+
+            box-shadow:
+
+                inset -28px -25px 45px rgba(0,0,0,.62),
+
+                inset 15px 12px 30px rgba(170,255,130,.35),
+
+                0 0 35px rgba(80,255,100,.5);
+
+            animation: earthFloat 5s ease-in-out infinite;
+        }
+
+
+        @keyframes earthFloat {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-14px);
+            }
+        }
+
+
+        /* Earth detail */
+
+        .earth::before {
+
+            content: "🌍";
+
+            position: absolute;
+
+            inset: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 150px;
+
+            filter:
+                saturate(1.25)
+                drop-shadow(0 0 12px rgba(100,255,100,.3));
+
+            opacity: .88;
+        }
+
+
+        /* =================================================
+           ORBIT
+        ================================================= */
+
+        .orbit {
+
+            position: absolute;
+
+            width: 285px;
+
+            height: 90px;
+
+            border-radius: 50%;
+
+            border: 2px solid rgba(120,255,100,.65);
+
+            transform: rotate(-15deg);
+
+            box-shadow:
+
+                0 0 15px rgba(80,255,100,.3);
+
+            z-index: 3;
+
+            animation: orbitRotate 7s linear infinite;
+        }
+
+
+        @keyframes orbitRotate {
+
+            from {
+                transform: rotate(-15deg);
+            }
+
+            to {
+                transform: rotate(345deg);
+            }
+        }
+
+
+        /* =================================================
+           FLOATING LEAVES
+        ================================================= */
+
+        .leaf {
+
+            position: absolute;
+
+            font-size: 27px;
+
+            z-index: 4;
+
+            filter:
+                drop-shadow(0 0 10px rgba(100,255,100,.6));
+
+            animation: leafFloat 4s ease-in-out infinite;
+        }
+
+
+        .leaf-1 {
+            top: 80px;
+            right: 35px;
+        }
+
+
+        .leaf-2 {
+            bottom: 70px;
+            left: 30px;
+
+            animation-delay: 1s;
+        }
+
+
+        .leaf-3 {
+            top: 155px;
+            left: 20px;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes leafFloat {
+
+            0%,100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(12deg);
+            }
+        }
+
+
+        /* =================================================
+           LOADING
+        ================================================= */
+
+        .loading {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: var(--green);
+
+            padding: 15px 0;
+
+            font-size: 14px;
+        }
+
+
+        .loading-dots {
+
+            display: flex;
+
+            gap: 5px;
+        }
+
+
+        .loading-dots span {
+
+            width: 6px;
+            height: 6px;
+
+            background: var(--green);
+
+            border-radius: 50%;
+
+            animation: loadingDots 1s infinite;
+        }
+
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: .15s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+
+        @keyframes loadingDots {
+
+            0%,100% {
+                opacity: .2;
+                transform: translateY(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(-5px);
+            }
+        }
+
+
+        /* =================================================
+           RESULT
+        ================================================= */
+
+        .advisor-result {
+
+            margin-top: 35px;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            background: rgba(0,20,16,.75);
+
+            border: 1px solid rgba(80,255,150,.3);
+
+            border-left: 4px solid var(--green);
+
+            position: relative;
+
+            z-index: 4;
+
+            animation: resultIn .5s ease;
+        }
+
+
+        @keyframes resultIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .advisor-result h2 {
+
+            color: var(--green);
+
+            font-family: "Space Grotesk", sans-serif;
+
+            margin-bottom: 18px;
+        }
+
+
+        .advisor-result p {
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+            margin-bottom: 12px;
+        }
+
+
+        .advisor-result ul {
+
+            padding-left: 22px;
+
+            margin: 15px 0;
+        }
+
+
+        .advisor-result li {
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+            margin-bottom: 7px;
+        }
+
+
+        .advisor-note {
+
+            color: var(--green-2) !important;
+
+            font-size: 13px;
+        }
+
+
+        /* =================================================
+           MOBILE
+        ================================================= */
+
+        @media(max-width: 850px) {
+
+            .ai-advisor {
+
+                margin: 25px auto;
+
+                padding: 30px 22px;
+            }
+
+
+            .advisor-content {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-area {
+
+                padding-right: 0;
+            }
+
+
+            .eco-visual {
+
+                border-left: none;
+
+                border-top: 1px solid rgba(100,255,180,.16);
+
+                margin-top: 15px;
+
+                padding-top: 25px;
+            }
+        }
+
+
+        @media(max-width: 550px) {
+
+            .advisor-heading {
+
+                gap: 12px;
+            }
+
+
+            .robot-icon {
+
+                width: 48px;
+                height: 48px;
+
+                font-size: 22px;
+            }
+
+
+            .advisor-heading h1 {
+
+                font-size: 30px;
+
+                letter-spacing: -1px;
+            }
+
+
+            .section-tag {
+
+                font-size: 9px;
+
+                letter-spacing: 2px;
+            }
+
+
+            .description {
+
+                font-size: 14px;
+            }
+
+
+            .main-btn {
+
+                width: 100%;
+            }
+
+
+            .eco-visual {
+
+                min-height: 330px;
+            }
+        }
+
+    </style>
+
 </head>
 
+
 <body>
-    <!-- Background -->
-    <div class="background"></div>
-    
-    <!-- Floating particles -->
-    <div class="particles">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+
+
+<!-- =====================================================
+     FLOATING PARTICLES
+====================================================== -->
+
+<div class="particles">
+
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN AI ADVISOR
+====================================================== -->
+
+<section class="ai-advisor">
+
+
+    <!-- HEADER -->
+
+    <div class="advisor-heading">
+
+
+        <div class="robot-icon">
+            🤖
+        </div>
+
+
+        <div>
+
+            <p class="section-tag">
+                PERSONALISE​D GUIDANCE
+            </p>
+
+
+            <h1>
+                EcoGuard
+                <span class="ai-text">AI</span>
+                Prevention Advisor
+            </h1>
+
+
+            <p class="description">
+
+                Tell us about an emission source and get
+                practical ideas to reduce it.
+
+            </p>
+
+        </div>
+
     </div>
-    
-    <!-- Theme Toggle -->
-    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-    
-    <!-- Navigation -->
-    <header class="navbar">
-        <div class="logo">🌍 <span>EcoGuard</span></div>
-        
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-        
-        <nav id="navMenu">
-            <button class="nav-btn active" data-section="home">Home</button>
-            <button class="nav-btn" data-section="stats">Statistics</button>
-            <button class="nav-btn" data-section="about">About Carbon</button>
-            <button class="nav-btn" data-section="gases">Important Gases</button>
-            <button class="nav-btn" data-section="circuit">Circuit Diagram</button>
-            <button class="nav-btn" data-section="model">3D Model</button>
-            <button class="nav-btn" data-section="filtration">Filtration</button>
-            <button class="nav-btn" data-section="prevention">Prevention</button>
-        </nav>
-    </header>
-    
-    <main>
-        <!-- ================= HOME ================= -->
-        <section id="home" class="page-section active-section">
-            <div class="hero">
-                <div class="hero-content">
-                    <p class="hero-tag">🌱 PROTECT • PREVENT • PRESERVE</p>
-                    <h1>Build a Future<span>With Cleaner Air</span></h1>
-                    <p class="hero-description">
-                        EcoGuard is an interactive awareness website explaining carbon emissions, 
-                        important gases, filtration technologies and practical prevention methods for a cleaner environment.
-                    </p>
-                    
-                    <div class="hero-buttons">
-                        <button class="main-btn" onclick="showSection('stats')">📊 View Statistics</button>
-                        <button class="secondary-btn" onclick="showSection('prevention')">🌱 Start Prevention</button>
-                    </div>
+
+
+
+    <!-- CONTENT -->
+
+    <div class="advisor-content">
+
+
+        <!-- =================================================
+             FORM
+        ================================================== -->
+
+        <div class="form-area">
+
+
+            <form id="carbonAdvisorForm">
+
+
+                <div class="form-group">
+
+                    <label for="emissionSource">
+                        Main emission source
+                    </label>
+
+
+                    <select
+                        id="emissionSource"
+                        required
+                    >
+
+                        <option value="transport">
+                            🚗 Transport / vehicles
+                        </option>
+
+                        <option value="electricity">
+                            ⚡ Home electricity
+                        </option>
+
+                        <option value="waste">
+                            ♻️ Waste and plastic
+                        </option>
+
+                        <option value="food">
+                            🌱 Food and agriculture
+                        </option>
+
+                        <option value="industry">
+                            🏭 Factory / industry
+                        </option>
+
+                    </select>
+
                 </div>
-                
-                <div class="hero-visual">
-                    <div class="earth">🌍</div>
-                    <div class="orbit orbit-one"></div>
-                    <div class="orbit orbit-two"></div>
-                    <div class="floating-leaf leaf-one">🌿</div>
-                    <div class="floating-leaf leaf-two">🍃</div>
+
+
+
+                <div class="form-group">
+
+                    <label for="carbonQuestion">
+                        Describe the situation
+                    </label>
+
+
+                    <textarea
+                        id="carbonQuestion"
+                        maxlength="500"
+                        placeholder="Example: I travel 20 km every day by motorbike and use air conditioning at home."
+                        required
+                    ></textarea>
+
+
+                    <div class="ai-status">
+
+                        <span class="status-dot"></span>
+
+                        EcoGuard AI is ready to analyse your situation
+
+                    </div>
+
                 </div>
-            </div>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Climate Awareness</h3>
-                    <p>Understanding emissions helps us make more sustainable decisions for our future.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Save Energy</h3>
-                    <p>Efficient energy use can reduce unnecessary greenhouse gas emissions.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌳</div>
-                    <h3>Protect Nature</h3>
-                    <p>Forests and healthy ecosystems play an important role in the carbon cycle.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ================= STATISTICS ================= -->
-        <section id="stats" class="page-section">
-            <div class="section-title">
-                <p class="section-tag">GLOBAL DATA</p>
-                <h2>Carbon Emission Statistics</h2>
-                <p>Real-time insights into global carbon emissions and climate impact.</p>
-            </div>
-            
-            <!-- Key Metrics Bar Chart -->
-            <div class="metrics-chart-container">
-                <h3 class="chart-title">Global Carbon Metrics</h3>
-                <div class="metrics-bars">
-                    <div class="metric-bar-item">
-                        <div class="metric-label">
-                            <span class="metric-name">Global CO₂ Emissions</span>
-                            <span class="metric-value"><span class="counter" data-target="37">0</span> Gt/Year</span>
-                        </div>
-                        <div class="metric-bar-wrapper">
-                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #FF6B6B, #FF1744);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="metric-bar-item">
-                        <div class="metric-label">
-                            <span class="metric-name">Temperature Increase</span>
-                            <span class="metric-value"><span class="counter" data-target="1.1">0</span>°C</span>
-                        </div>
-                        <div class="metric-bar-wrapper">
-                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #FF8A50, #FF6B35);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="metric-bar-item">
-                        <div class="metric-label">
-                            <span class="metric-name">Preventable Emissions</span>
-                            <span class="metric-value"><span class="counter" data-target="95">0</span>%</span>
-                        </div>
-                        <div class="metric-bar-wrapper">
-                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #50C878, #26A65B);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="metric-bar-item">
-                        <div class="metric-label">
-                            <span class="metric-name">Countries in Climate Accord</span>
-                            <span class="metric-value"><span class="counter" data-target="186">0</span></span>
-                        </div>
-                        <div class="metric-bar-wrapper">
-                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #4ECDC4, #44A08D);"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Emission Sources Bar Chart -->
-            <div class="emissions-chart">
-                <h3 class="chart-title">Top Emission Sources Breakdown</h3>
-                <div class="chart-bars">
-                    <div class="bar-item">
-                        <div class="bar-label">
-                            <span>🔋 Energy & Power</span>
-                            <span class="bar-value" data-target="73">73%</span>
-                        </div>
-                        <div class="bar-container">
-                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #FF6B6B, #FF8E72);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="bar-item">
-                        <div class="bar-label">
-                            <span>🌾 Agriculture & Land Use</span>
-                            <span class="bar-value" data-target="18">18%</span>
-                        </div>
-                        <div class="bar-container">
-                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #4ECDC4, #44A08D);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="bar-item">
-                        <div class="bar-label">
-                            <span>🏭 Industrial Processes</span>
-                            <span class="bar-value" data-target="9">9%</span>
-                        </div>
-                        <div class="bar-container">
-                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #F7DC6F, #F8C471);"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Regional Emissions Bar Chart -->
-            <div class="regional-chart">
-                <h3 class="chart-title">Top Emitting Regions</h3>
-                <div class="regional-bars">
-                    <div class="regional-bar-item">
-                        <div class="region-label">
-                            <span class="region-name">🇨🇳 China</span>
-                            <span class="region-value"><span class="counter" data-target="10">0</span> Gt</span>
-                        </div>
-                        <div class="region-bar-wrapper">
-                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #E74C3C, #C0392B);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="regional-bar-item">
-                        <div class="region-label">
-                            <span class="region-name">🇺🇸 United States</span>
-                            <span class="region-value"><span class="counter" data-target="5.8">0</span> Gt</span>
-                        </div>
-                        <div class="region-bar-wrapper">
-                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #3498DB, #2980B9);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="regional-bar-item">
-                        <div class="region-label">
-                            <span class="region-name">🇮🇳 India</span>
-                            <span class="region-value"><span class="counter" data-target="2.4">0</span> Gt</span>
-                        </div>
-                        <div class="region-bar-wrapper">
-                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #F39C12, #D68910);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="regional-bar-item">
-                        <div class="region-label">
-                            <span class="region-name">🇷🇺 Russia</span>
-                            <span class="region-value"><span class="counter" data-target="1.7">0</span> Gt</span>
-                        </div>
-                        <div class="region-bar-wrapper">
-                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #9B59B6, #8E44AD);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="regional-bar-item">
-                        <div class="region-label">
-                            <span class="region-name">🇯🇵 Japan</span>
-                            <span class="region-value"><span class="counter" data-target="1.0">0</span> Gt</span>
-                        </div>
-                        <div class="region-bar-wrapper">
-                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #1ABC9C, #16A085);"></div>
-                        </div>
-                    </div>
-                </div>
+
+
+
+                <!-- BUTTON -->
+
+                <button
+                    class="main-btn"
+                    type="submit"
+                >
+
+                    <span class="button-text">
+                        ✨ Get prevention ideas
+                    </span>
+
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ECO VISUAL
+        ================================================== -->
+
+        <div class="eco-visual">
+
+
+            <div class="eco-title">
+
+                Small changes
+
+                <strong>
+                    Big impact
+                </strong>
+
             </div>
 
-            <!-- Emission Reduction Potential -->
-            <div class="reduction-potential">
-                <h3 class="chart-title">Emission Reduction Potential by Sector</h3>
-                <div class="reduction-bars">
-                    <div class="reduction-bar-item">
-                        <div class="reduction-label">
-                            <span>Renewable Energy Transition</span>
-                            <span class="reduction-value"><span class="counter" data-target="40">0</span>%</span>
-                        </div>
-                        <div class="reduction-bar-wrapper">
-                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #27AE60, #1E8449);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="reduction-bar-item">
-                        <div class="reduction-label">
-                            <span>Energy Efficiency Improvements</span>
-                            <span class="reduction-value"><span class="counter" data-target="25">0</span>%</span>
-                        </div>
-                        <div class="reduction-bar-wrapper">
-                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #2ECC71, #27AE60);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="reduction-bar-item">
-                        <div class="reduction-label">
-                            <span>Circular Economy Practices</span>
-                            <span class="reduction-value"><span class="counter" data-target="20">0</span>%</span>
-                        </div>
-                        <div class="reduction-bar-wrapper">
-                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #3498DB, #2980B9);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="reduction-bar-item">
-                        <div class="reduction-label">
-                            <span>Sustainable Agriculture</span>
-                            <span class="reduction-value"><span class="counter" data-target="15">0</span>%</span>
-                        </div>
-                        <div class="reduction-bar-wrapper">
-                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #F39C12, #D68910);"></div>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="earth-glow"></div>
+
+
+            <div class="earth"></div>
+
+
+            <div class="orbit"></div>
+
+
+            <div class="leaf leaf-1">
+                🍃
             </div>
-        </section>
-        
-        <!-- ================= ABOUT CARBON ================= -->
-        <section id="about" class="page-section">
-            <div class="section-title">
-                <p class="section-tag">LEARN THE BASICS</p>
-                <h2>Understanding Carbon</h2>
-                <p>Carbon is an important chemical element found throughout nature and in many materials.</p>
+
+            <div class="leaf leaf-2">
+                🌿
             </div>
-            
-            <div class="info-grid">
-                <div class="glass-card large-card">
-                    <div class="big-icon">⚛️</div>
-                    <h3>What is Carbon?</h3>
-                    <p>Carbon is a naturally occurring chemical element with the symbol C. It is present in living organisms, fuels, soil and many natural and manufactured materials.</p>
-                </div>
-                <div class="glass-card large-card">
-                    <div class="big-icon">💨</div>
-                    <h3>Carbon Emissions</h3>
-                    <p>Carbon dioxide and other greenhouse gases can be released through activities such as burning fossil fuels, transportation and industrial processes.</p>
-                </div>
-                <div class="glass-card large-card">
-                    <div class="big-icon">🏭</div>
-                    <h3>Major Sources</h3>
-                    <p>Transportation, electricity generation, industrial activities and land-use changes are important sources of greenhouse gas emissions.</p>
-                </div>
-                <div class="glass-card large-card">
-                    <div class="big-icon">🌡️</div>
-                    <h3>Environmental Impact</h3>
-                    <p>Increased greenhouse gas concentrations can contribute to climate change and affect ecosystems and weather patterns.</p>
-                </div>
+
+            <div class="leaf leaf-3">
+                🍃
             </div>
-        </section>
-        
-        <!-- ================= GASES ================= -->
-        <section id="gases" class="page-section">
-            <div class="section-title">
-                <p class="section-tag">ATMOSPHERIC GASES</p>
-                <h2>Important Gases</h2>
-                <p>Learn about important gases and their chemical formulas.</p>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         RESULT
+    ================================================== -->
+
+    <div
+        id="advisorResult"
+        class="advisor-result"
+        hidden
+    >
+
+        <h2>
+            🌱 Your Carbon-Reduction Plan
+        </h2>
+
+
+        <div id="advisorText"></div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const form =
+    document.getElementById("carbonAdvisorForm");
+
+const result =
+    document.getElementById("advisorResult");
+
+const resultText =
+    document.getElementById("advisorText");
+
+
+/* =====================================================
+   PREVENTION DATABASE
+===================================================== */
+
+const preventionIdeas = {
+
+    transport: {
+
+        title: "Transport Emission Reduction",
+
+        ideas: [
+
+            "Walk or cycle for short journeys whenever possible.",
+
+            "Use public transport, carpooling, or combine several errands into one trip.",
+
+            "Keep vehicle tyres correctly inflated and maintain the engine regularly.",
+
+            "Avoid unnecessary idling because it wastes fuel.",
+
+            "When replacing a vehicle, consider a fuel-efficient or electric option."
+
+        ]
+
+    },
+
+
+    electricity: {
+
+        title: "Home Electricity Reduction",
+
+        ideas: [
+
+            "Switch off lights, fans, chargers, and appliances when they are not being used.",
+
+            "Replace traditional bulbs with energy-efficient LED lighting.",
+
+            "Use energy-efficient appliances where possible.",
+
+            "Keep air-conditioning filters clean and avoid unnecessarily low temperatures.",
+
+            "Consider rooftop solar power if it is practical for your home."
+
+        ]
+
+    },
+
+
+    waste: {
+
+        title: "Waste & Plastic Reduction",
+
+        ideas: [
+
+            "Avoid unnecessary single-use plastic products.",
+
+            "Carry reusable bags, bottles, and food containers.",
+
+            "Separate recyclable, organic, and general waste.",
+
+            "Compost suitable food waste instead of sending it to landfill.",
+
+            "Repair, reuse, donate, or recycle products before replacing them."
+
+        ]
+
+    },
+
+
+    food: {
+
+        title: "Food & Agriculture Reduction",
+
+        ideas: [
+
+            "Include more plant-based meals in your weekly diet.",
+
+            "Choose seasonal food when practical.",
+
+            "Plan meals carefully to reduce food waste.",
+
+            "Store leftovers properly so they can be used later.",
+
+            "Compost unavoidable organic food waste where facilities are available."
+
+        ]
+
+    },
+
+
+    industry: {
+
+        title: "Industrial Emission Reduction",
+
+        ideas: [
+
+            "Measure electricity and fuel consumption to identify major emission sources.",
+
+            "Regularly maintain motors, boilers, pumps, and industrial machinery.",
+
+            "Improve production efficiency to reduce energy consumed per product.",
+
+            "Consider renewable energy and waste-heat recovery where practical.",
+
+            "Reduce material waste and recycle suitable production by-products."
+
+        ]
+
+    }
+
+};
+
+
+
+/* =====================================================
+   SAFE HTML FUNCTION
+===================================================== */
+
+function escapeHTML(text) {
+
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+
+/* =====================================================
+   FORM SUBMIT
+===================================================== */
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const source =
+        document.getElementById("emissionSource").value;
+
+
+    const situation =
+        document
+            .getElementById("carbonQuestion")
+            .value
+            .trim();
+
+
+    if (!situation) {
+
+        return;
+
+    }
+
+
+    const data =
+        preventionIdeas[source];
+
+
+    /* Show AI loading */
+
+    result.hidden = false;
+
+
+    resultText.innerHTML = `
+
+        <div class="loading">
+
+            <span>🤖 EcoGuard AI is analysing your situation</span>
+
+            <div class="loading-dots">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
             </div>
-            
-            <div class="gas-grid">
-                <article class="gas-card">
-                    <div class="gas-icon">💨</div>
-                    <h3>Carbon Dioxide</h3>
-                    <div class="formula">CO₂</div>
-                    <h4>Definition</h4>
-                    <p>Carbon dioxide is a gas containing one carbon atom and two oxygen atoms. It is produced naturally and through activities such as burning fossil fuels.</p>
-                    <h4>Chemical Structure</h4>
-                    <div class="structure">O = C = O</div>
-                    <h4>Prevention Methods</h4>
-                    <ul>
-                        <li>Use energy efficiently.</li>
-                        <li>Increase renewable energy use.</li>
-                        <li>Reduce unnecessary fuel consumption.</li>
-                        <li>Protect and restore forests.</li>
-                    </ul>
-                </article>
-                
-                <article class="gas-card">
-                    <div class="gas-icon">🔥</div>
-                    <h3>Methane</h3>
-                    <div class="formula">CH₄</div>
-                    <h4>Definition</h4>
-                    <p>Methane is a simple hydrocarbon containing one carbon atom and four hydrogen atoms. It can be released from natural and human activities.</p>
-                    <h4>Chemical Structure</h4>
-                    <div class="structure">H<br>│<br>H — C — H<br>│<br>H</div>
-                    <h4>Prevention Methods</h4>
-                    <ul>
-                        <li>Reduce leaks from gas systems.</li>
-                        <li>Improve waste management.</li>
-                        <li>Capture methane where appropriate.</li>
-                        <li>Improve agricultural practices.</li>
-                    </ul>
-                </article>
-                
-                <article class="gas-card">
-                    <div class="gas-icon">⚠️</div>
-                    <h3>Carbon Monoxide</h3>
-                    <div class="formula">CO</div>
-                    <h4>Definition</h4>
-                    <p>Carbon monoxide is a gas made of one carbon atom and one oxygen atom. It can form when carbon-containing fuels burn incompletely.</p>
-                    <h4>Chemical Structure</h4>
-                    <div class="structure">C ≡ O</div>
-                    <h4>Prevention Methods</h4>
-                    <ul>
-                        <li>Maintain combustion equipment properly.</li>
-                        <li>Use good ventilation.</li>
-                        <li>Improve fuel combustion efficiency.</li>
-                        <li>Use appropriate emission-control systems.</li>
-                    </ul>
-                </article>
-                
-                <article class="gas-card">
-                    <div class="gas-icon">❄️</div>
-                    <h3>Hydrofluorocarbons</h3>
-                    <div class="formula">HFCs</div>
-                    <h4>Definition</h4>
-                    <p>Hydrofluorocarbons are a group of synthetic gases that have been used in some refrigeration and air-conditioning applications.</p>
-                    <h4>Chemical Structure</h4>
-                    <div class="structure">CₓHᵧFᵢ</div>
-                    <h4>Prevention Methods</h4>
-                    <ul>
-                        <li>Prevent refrigerant leaks.</li>
-                        <li>Maintain cooling systems properly.</li>
-                        <li>Use lower-impact alternatives where suitable.</li>
-                        <li>Recover and manage refrigerants responsibly.</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-        
-        <!-- ================= CIRCUIT DIAGRAM ================= -->
-        <section id="circuit" class="page-section">
-            <div class="section-title">
-                <p class="section-tag">SYSTEM OVERVIEW</p>
-                <h2>Circuit Diagram</h2>
-                <p>Visual representation of the carbon emission monitoring and filtration system circuit.</p>
-            </div>
-            
-            <div class="circuit-container">
-                <div class="circuit-image-wrapper">
-                    <img src="circuit-diagram.svg" alt="Emission Control Circuit Diagram" class="circuit-image">
-                </div>
-                
-                <div class="circuit-description">
-                    <h3>System Components</h3>
-                    <div class="flow-steps">
-                        <div class="flow-step">
-                            <span class="step-num">1</span>
-                            <div>
-                                <strong>Battery</strong> - DC power supply
-                            </div>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">2</span>
-                            <div>
-                                <strong>Switch</strong> - Control activation
-                            </div>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">3</span>
-                            <div>
-                                <strong>Motor</strong> - Drives suction/filtration
-                            </div>
-                        </div>
-                        <div class="flow-step">
-                            <span class="step-num">4</span>
-                            <div>
-                                <strong>Flow Control</strong> - Manages air intake
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="system-info">
-                        <p><strong>How it works:</strong> Close the switch to activate the DC motor, which drives the suction mechanism for air filtration and emission control.</p>
-                    </div>
-                    
-                    <button class="main-btn" onclick="showSection('filtration')">Learn Filtration Process →</button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ================= 3D MODEL ================= -->
-        <section id="model" class="page-section">
-            <div class="section-title">
-                <p class="section-tag">INTERACTIVE SECTION</p>
-                <h2>3D Motor Breakdown</h2>
-                <p>An exploded visual representation of the system's internal motor.</p>
-            </div>
-            
-            <div class="model-container">
-                <div class="video-container" style="border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
-                    <video id="motorVideo" width="100%" autoplay loop muted playsinline>
-                        <source src="3.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                
-                <div class="model-info">
-                    <h3>Filtration Motor Structure</h3>
-                    <p>This 3D exploded view represents the internal components of the DC motor mechanism used in the emission control circuit. It highlights the electromagnetic coils, rotor, and impeller assembly.</p>
-                    <div class="molecule-props">
-                        <div class="prop"><strong>Component:</strong> DC Motor / Pump</div>
-                        <div class="prop"><strong>Function:</strong> Air/Fluid Suction</div>
-                        <div class="prop"><strong>Power Source:</strong> Direct Current (DC)</div>
-                    </div>
-                    <button class="main-btn" onclick="const v = document.getElementById('motorVideo'); v.paused ? v.play() : v.pause();">⏯ Toggle Animation</button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ================= FILTRATION ================= -->
-        <section id="filtration" class="page-section">
-            <div class="section-title">
-                <p class="section-tag">POLLUTION CONTROL</p>
-                <h2>Filtration Process</h2>
-                <p>Filtration and pollution-control systems can remove certain particles and pollutants from gas streams.</p>
-            </div>
-            
-            <div class="process">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <div class="step-icon">🏭</div>
-                    <h3>Polluted Air</h3>
-                    <p>Polluted air enters a treatment or pollution control system.</p>
-                </div>
-                <div class="arrow">→</div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <div class="step-icon">🌀</div>
-                    <h3>Filtration</h3>
-                    <p>Filters can capture selected dust and particulate matter.</p>
-                </div>
-                <div class="arrow">→</div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <div class="step-icon">⚙️</div>
-                    <h3>Treatment</h3>
-                    <p>Additional pollution-control technologies can reduce selected pollutants.</p>
-                </div>
-                <div class="arrow">→</div>
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <div class="step-icon">🌿</div>
-                    <h3>Cleaner Air</h3>
-                    <p>Treated air can contain fewer targeted pollutants when released.</p>
-                </div>
-            </div>
-            
-            <div class="important-note">
-                <h3>💡 Important Note</h3>
-                <p>Filtration can help control certain air pollutants, but reducing emissions at their source and using cleaner energy are also important.</p>
-            </div>
-        </section>
-        
-        <!-- ================= PREVENTION ================= -->
-        <section id="prevention" class="page-section">
-            <div class="section-title">
-                <p class="section-tag">TAKE ACTION</p>
-                <h2>Prevention Methods</h2>
-                <p>Small and large actions can help reduce unnecessary greenhouse gas emissions.</p>
-            </div>
-            
-            <div class="prevention-grid">
-                <div class="prevention-card">
-                    <div class="prevention-icon">⚡</div>
-                    <h3>Save Energy</h3>
-                    <p>Turn off unnecessary electrical devices and use energy-efficient equipment.</p>
-                </div>
-                <div class="prevention-card">
-                    <div class="prevention-icon">🚌</div>
-                    <h3>Sustainable Transport</h3>
-                    <p>Walking, cycling, public transport and efficient travel can help reduce fuel use.</p>
-                </div>
-                <div class="prevention-card">
-                    <div class="prevention-icon">🌳</div>
-                    <h3>Protect Forests</h3>
-                    <p>Forest conservation and restoration support healthy ecosystems and the carbon cycle.</p>
-                </div>
-                <div class="prevention-card">
-                    <div class="prevention-icon">♻️</div>
-                    <h3>Reduce Waste</h3>
-                    <p>Reduce, reuse and recycle materials whenever practical.</p>
-                </div>
-                <div class="prevention-card">
-                    <div class="prevention-icon">☀️</div>
-                    <h3>Clean Energy</h3>
-                    <p>Increasing the use of low-emission energy sources can reduce dependence on fossil fuels.</p>
-                </div>
-                <div class="prevention-card">
-                    <div class="prevention-icon">💡</div>
-                    <h3>Spread Awareness</h3>
-                    <p>Learning and sharing accurate environmental information can encourage positive action.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer>
-        <h2>🌍 EcoGuard</h2>
-        <p>Learn • Protect • Act for a Cleaner Future</p>
-        <small>Educational awareness project | © 2024</small>
-    </footer>
-    
-    <audio id="clickSound" preload="auto">
-        <source src="sound.mp3" type="audio/mpeg">
-    </audio>
-    
-    <script src="script.js"></script>
+
+        </div>
+
+    `;
+
+
+    result.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "nearest"
+
+    });
+
+
+    /* Simulate AI analysis */
+
+    setTimeout(function() {
+
+
+        const safeSituation =
+            escapeHTML(situation);
+
+
+        resultText.innerHTML = `
+
+            <p>
+
+                <strong>
+                    Situation analysed:
+                </strong>
+
+                ${safeSituation}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    ${data.title}
+                </strong>
+
+            </p>
+
+
+            <p>
+                Based on the emission source you selected,
+                EcoGuard recommends these practical actions:
+            </p>
+
+
+            <ul>
+
+                ${data.ideas
+                    .map(idea => `<li>${idea}</li>`)
+                    .join("")}
+
+            </ul>
+
+
+            <p class="advisor-note">
+
+                🌍 AI recommendation:
+                Start with one or two changes that are
+                realistic for your daily routine.
+                Consistent small actions can create a
+                meaningful reduction in emissions.
+
+            </p>
+
+        `;
+
+
+    }, 1200);
+
+});
+
+
+</script>
+
 </body>
 </html>
