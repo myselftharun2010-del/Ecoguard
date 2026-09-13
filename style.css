@@ -1202,4 +1202,25 @@ footer small {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255,255,255,0.5);
     transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+   /* ===== AI CARBON ANALYZER BUTTON ===== */
+.carbon-ai-button {
+    display: inline-block;
+    padding: 14px 24px;
+    margin: 20px 0;
+    background: linear-gradient(135deg, #00c853, #00a844);
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 200, 83, 0.2);
+}
+
+.carbon-ai-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 200, 83, 0.4);
+}
 }
