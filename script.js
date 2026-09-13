@@ -246,3 +246,92 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".feature-card, .glass-card, .gas-card, .prevention-card").forEach(el => {
     observer.observe(el);
 });
+/* ===== LOGIN SYSTEM ===== */
+const loginModal = document.getElementById("loginModal");
+const loginForm = document.getElementById("loginForm");
+const profileBtn = document.getElementById("profileBtn");
+const profileDropdown = document.getElementById("profileDropdown");
+const logoutBtn = document.getElementById("logoutBtn");
+
+// Initialize login on page load
+function initLogin() {
+    const storedUser = localStorage.getItem("ecoguard_user");
+    
+    if (storedUser) {
+        const user = JSON.parse(storedUser);
+        hideLoginModal();
+        displayUserProfile(user);
+    } else {
+        showLoginModal();
+    }
+}
+
+// Handle login form submission
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    const userName = document.getElementById("userName").value.trim();
+    const userEmail = document.getElementById("userEmail").value.trim();
+    
+    if (userName && userEmail) {
+        // Store user data in localStorage
+        const userData = {
+            name: userName,
+            email: userEmail,
+            loginDate: new Date().toLocaleDateString()
+        };
+        
+        localStorage.setItem("ecoguard_user", JSON.stringify(userData));
+        
+        // Hide login modal and show profile
+        hideLoginModal();
+        displayUserProfile(userData);
+        
+        // Clear form
+        loginForm.reset();
+        
+        playClickSound();
+    }
+});
+
+// Display user profile
+function displayUserProfile(user) {
+    document.getElementById("userName").textContent = user.name.split(" ")[0];
+    document.getElementById("displayName").textContent = user.name;
+    document.getElementById("displayEmail").textContent = user.email;
+}
+
+// Show/Hide login modal
+function showLoginModal() {
+    loginModal.classList.remove("hidden");
+}
+
+function hideLoginModal() {
+    loginModal.classList.add("hidden");
+}
+
+// Toggle profile dropdown
+profileBtn.addEventListener("click", () => {
+    profileDropdown.classList.toggle("show");
+    playClickSound();
+});
+
+// Close dropdown when clicking outside
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".user-profile-container")) {
+        profileDropdown.classList.remove("show");
+    }
+});
+
+// Logout function
+logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("ecoguard_user");
+    profileDropdown.classList.remove("show");
+    showLoginModal();
+    document.getElementById("userName").value = "";
+    document.getElementById("userEmail").value = "";
+    playClickSound();
+});
+
+// Initialize login system when page loads
+initLogin();
