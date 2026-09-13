@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGuard | Carbon Emission Awareness</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="background"></div>
+    
+    <!-- Floating particles -->
+    <div class="particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">🌍 <span>EcoGuard</span></div>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        
+        <nav id="navMenu">
+            <button class="nav-btn active" data-section="home">Home</button>
+            <button class="nav-btn" data-section="stats">Statistics</button>
+            <button class="nav-btn" data-section="about">About Carbon</button>
+            <button class="nav-btn" data-section="gases">Important Gases</button>
+            <button class="nav-btn" data-section="circuit">Circuit Diagram</button>
+            <button class="nav-btn" data-section="model">3D Model</button>
+            <button class="nav-btn" data-section="filtration">Filtration</button>
+            <button class="nav-btn" data-section="prevention">Prevention</button>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- ================= HOME ================= -->
+        <section id="home" class="page-section active-section">
+            <div class="hero">
+                <div class="hero-content">
+                    <p class="hero-tag">🌱 PROTECT • PREVENT • PRESERVE</p>
+                    <h1>Build a Future<span>With Cleaner Air</span></h1>
+                    <p class="hero-description">
+                        EcoGuard is an interactive awareness website explaining carbon emissions, 
+                        important gases, filtration technologies and practical prevention methods for a cleaner environment.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <button class="main-btn" onclick="showSection('stats')">📊 View Statistics</button>
+                        <button class="secondary-btn" onclick="showSection('prevention')">🌱 Start Prevention</button>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="earth">🌍</div>
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="floating-leaf leaf-one">🌿</div>
+                    <div class="floating-leaf leaf-two">🍃</div>
+                </div>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Climate Awareness</h3>
+                    <p>Understanding emissions helps us make more sustainable decisions for our future.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Save Energy</h3>
+                    <p>Efficient energy use can reduce unnecessary greenhouse gas emissions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌳</div>
+                    <h3>Protect Nature</h3>
+                    <p>Forests and healthy ecosystems play an important role in the carbon cycle.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ================= STATISTICS ================= -->
+        <section id="stats" class="page-section">
+            <div class="section-title">
+                <p class="section-tag">GLOBAL DATA</p>
+                <h2>Carbon Emission Statistics</h2>
+                <p>Real-time insights into global carbon emissions and climate impact.</p>
+            </div>
+            
+            <!-- Key Metrics Bar Chart -->
+            <div class="metrics-chart-container">
+                <h3 class="chart-title">Global Carbon Metrics</h3>
+                <div class="metrics-bars">
+                    <div class="metric-bar-item">
+                        <div class="metric-label">
+                            <span class="metric-name">Global CO₂ Emissions</span>
+                            <span class="metric-value"><span class="counter" data-target="37">0</span> Gt/Year</span>
+                        </div>
+                        <div class="metric-bar-wrapper">
+                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #FF6B6B, #FF1744);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-bar-item">
+                        <div class="metric-label">
+                            <span class="metric-name">Temperature Increase</span>
+                            <span class="metric-value"><span class="counter" data-target="1.1">0</span>°C</span>
+                        </div>
+                        <div class="metric-bar-wrapper">
+                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #FF8A50, #FF6B35);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-bar-item">
+                        <div class="metric-label">
+                            <span class="metric-name">Preventable Emissions</span>
+                            <span class="metric-value"><span class="counter" data-target="95">0</span>%</span>
+                        </div>
+                        <div class="metric-bar-wrapper">
+                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #50C878, #26A65B);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-bar-item">
+                        <div class="metric-label">
+                            <span class="metric-name">Countries in Climate Accord</span>
+                            <span class="metric-value"><span class="counter" data-target="186">0</span></span>
+                        </div>
+                        <div class="metric-bar-wrapper">
+                            <div class="metric-bar" style="width: 0%; background: linear-gradient(90deg, #4ECDC4, #44A08D);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Emission Sources Bar Chart -->
+            <div class="emissions-chart">
+                <h3 class="chart-title">Top Emission Sources Breakdown</h3>
+                <div class="chart-bars">
+                    <div class="bar-item">
+                        <div class="bar-label">
+                            <span>🔋 Energy & Power</span>
+                            <span class="bar-value" data-target="73">73%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #FF6B6B, #FF8E72);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bar-item">
+                        <div class="bar-label">
+                            <span>🌾 Agriculture & Land Use</span>
+                            <span class="bar-value" data-target="18">18%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #4ECDC4, #44A08D);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bar-item">
+                        <div class="bar-label">
+                            <span>🏭 Industrial Processes</span>
+                            <span class="bar-value" data-target="9">9%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar" style="width: 0%; background: linear-gradient(90deg, #F7DC6F, #F8C471);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Regional Emissions Bar Chart -->
+            <div class="regional-chart">
+                <h3 class="chart-title">Top Emitting Regions</h3>
+                <div class="regional-bars">
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇨🇳 China</span>
+                            <span class="region-value"><span class="counter" data-target="10">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #E74C3C, #C0392B);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇺🇸 United States</span>
+                            <span class="region-value"><span class="counter" data-target="5.8">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #3498DB, #2980B9);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇮🇳 India</span>
+                            <span class="region-value"><span class="counter" data-target="2.4">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #F39C12, #D68910);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇷🇺 Russia</span>
+                            <span class="region-value"><span class="counter" data-target="1.7">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #9B59B6, #8E44AD);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-bar-item">
+                        <div class="region-label">
+                            <span class="region-name">🇯🇵 Japan</span>
+                            <span class="region-value"><span class="counter" data-target="1.0">0</span> Gt</span>
+                        </div>
+                        <div class="region-bar-wrapper">
+                            <div class="region-bar" style="width: 0%; background: linear-gradient(90deg, #1ABC9C, #16A085);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emission Reduction Potential -->
+            <div class="reduction-potential">
+                <h3 class="chart-title">Emission Reduction Potential by Sector</h3>
+                <div class="reduction-bars">
+                    <div class="reduction-bar-item">
+                        <div class="reduction-label">
+                            <span>Renewable Energy Transition</span>
+                            <span class="reduction-value"><span class="counter" data-target="40">0</span>%</span>
+                        </div>
+                        <div class="reduction-bar-wrapper">
+                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #27AE60, #1E8449);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="reduction-bar-item">
+                        <div class="reduction-label">
+                            <span>Energy Efficiency Improvements</span>
+                            <span class="reduction-value"><span class="counter" data-target="25">0</span>%</span>
+                        </div>
+                        <div class="reduction-bar-wrapper">
+                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #2ECC71, #27AE60);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="reduction-bar-item">
+                        <div class="reduction-label">
+                            <span>Circular Economy Practices</span>
+                            <span class="reduction-value"><span class="counter" data-target="20">0</span>%</span>
+                        </div>
+                        <div class="reduction-bar-wrapper">
+                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #3498DB, #2980B9);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="reduction-bar-item">
+                        <div class="reduction-label">
+                            <span>Sustainable Agriculture</span>
+                            <span class="reduction-value"><span class="counter" data-target="15">0</span>%</span>
+                        </div>
+                        <div class="reduction-bar-wrapper">
+                            <div class="reduction-bar" style="width: 0%; background: linear-gradient(90deg, #F39C12, #D68910);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ================= ABOUT CARBON ================= -->
+        <section id="about" class="page-section">
+            <div class="section-title">
+                <p class="section-tag">LEARN THE BASICS</p>
+                <h2>Understanding Carbon</h2>
+                <p>Carbon is an important chemical element found throughout nature and in many materials.</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="glass-card large-card">
+                    <div class="big-icon">⚛️</div>
+                    <h3>What is Carbon?</h3>
+                    <p>Carbon is a naturally occurring chemical element with the symbol C. It is present in living organisms, fuels, soil and many natural and manufactured materials.</p>
+                </div>
+                <div class="glass-card large-card">
+                    <div class="big-icon">💨</div>
+                    <h3>Carbon Emissions</h3>
+                    <p>Carbon dioxide and other greenhouse gases can be released through activities such as burning fossil fuels, transportation and industrial processes.</p>
+                </div>
+                <div class="glass-card large-card">
+                    <div class="big-icon">🏭</div>
+                    <h3>Major Sources</h3>
+                    <p>Transportation, electricity generation, industrial activities and land-use changes are important sources of greenhouse gas emissions.</p>
+                </div>
+                <div class="glass-card large-card">
+                    <div class="big-icon">🌡️</div>
+                    <h3>Environmental Impact</h3>
+                    <p>Increased greenhouse gas concentrations can contribute to climate change and affect ecosystems and weather patterns.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ================= GASES ================= -->
+        <section id="gases" class="page-section">
+            <div class="section-title">
+                <p class="section-tag">ATMOSPHERIC GASES</p>
+                <h2>Important Gases</h2>
+                <p>Learn about important gases and their chemical formulas.</p>
+            </div>
+            
+            <div class="gas-grid">
+                <article class="gas-card">
+                    <div class="gas-icon">💨</div>
+                    <h3>Carbon Dioxide</h3>
+                    <div class="formula">CO₂</div>
+                    <h4>Definition</h4>
+                    <p>Carbon dioxide is a gas containing one carbon atom and two oxygen atoms. It is produced naturally and through activities such as burning fossil fuels.</p>
+                    <h4>Chemical Structure</h4>
+                    <div class="structure">O = C = O</div>
+                    <h4>Prevention Methods</h4>
+                    <ul>
+                        <li>Use energy efficiently.</li>
+                        <li>Increase renewable energy use.</li>
+                        <li>Reduce unnecessary fuel consumption.</li>
+                        <li>Protect and restore forests.</li>
+                    </ul>
+                </article>
+                
+                <article class="gas-card">
+                    <div class="gas-icon">🔥</div>
+                    <h3>Methane</h3>
+                    <div class="formula">CH₄</div>
+                    <h4>Definition</h4>
+                    <p>Methane is a simple hydrocarbon containing one carbon atom and four hydrogen atoms. It can be released from natural and human activities.</p>
+                    <h4>Chemical Structure</h4>
+                    <div class="structure">H<br>│<br>H — C — H<br>│<br>H</div>
+                    <h4>Prevention Methods</h4>
+                    <ul>
+                        <li>Reduce leaks from gas systems.</li>
+                        <li>Improve waste management.</li>
+                        <li>Capture methane where appropriate.</li>
+                        <li>Improve agricultural practices.</li>
+                    </ul>
+                </article>
+                
+                <article class="gas-card">
+                    <div class="gas-icon">⚠️</div>
+                    <h3>Carbon Monoxide</h3>
+                    <div class="formula">CO</div>
+                    <h4>Definition</h4>
+                    <p>Carbon monoxide is a gas made of one carbon atom and one oxygen atom. It can form when carbon-containing fuels burn incompletely.</p>
+                    <h4>Chemical Structure</h4>
+                    <div class="structure">C ≡ O</div>
+                    <h4>Prevention Methods</h4>
+                    <ul>
+                        <li>Maintain combustion equipment properly.</li>
+                        <li>Use good ventilation.</li>
+                        <li>Improve fuel combustion efficiency.</li>
+                        <li>Use appropriate emission-control systems.</li>
+                    </ul>
+                </article>
+                
+                <article class="gas-card">
+                    <div class="gas-icon">❄️</div>
+                    <h3>Hydrofluorocarbons</h3>
+                    <div class="formula">HFCs</div>
+                    <h4>Definition</h4>
+                    <p>Hydrofluorocarbons are a group of synthetic gases that have been used in some refrigeration and air-conditioning applications.</p>
+                    <h4>Chemical Structure</h4>
+                    <div class="structure">CₓHᵧFᵢ</div>
+                    <h4>Prevention Methods</h4>
+                    <ul>
+                        <li>Prevent refrigerant leaks.</li>
+                        <li>Maintain cooling systems properly.</li>
+                        <li>Use lower-impact alternatives where suitable.</li>
+                        <li>Recover and manage refrigerants responsibly.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        
+        <!-- ================= CIRCUIT DIAGRAM ================= -->
+        <section id="circuit" class="page-section">
+            <div class="section-title">
+                <p class="section-tag">SYSTEM OVERVIEW</p>
+                <h2>Circuit Diagram</h2>
+                <p>Visual representation of the carbon emission monitoring and filtration system circuit.</p>
+            </div>
+            
+            <div class="circuit-container">
+                <div class="circuit-image-wrapper">
+                    <img src="circuit-diagram.svg" alt="Emission Control Circuit Diagram" class="circuit-image">
+                </div>
+                
+                <div class="circuit-description">
+                    <h3>System Components</h3>
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <span class="step-num">1</span>
+                            <div>
+                                <strong>Battery</strong> - DC power supply
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <span class="step-num">2</span>
+                            <div>
+                                <strong>Switch</strong> - Control activation
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <span class="step-num">3</span>
+                            <div>
+                                <strong>Motor</strong> - Drives suction/filtration
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <span class="step-num">4</span>
+                            <div>
+                                <strong>Flow Control</strong> - Manages air intake
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="system-info">
+                        <p><strong>How it works:</strong> Close the switch to activate the DC motor, which drives the suction mechanism for air filtration and emission control.</p>
+                    </div>
+                    
+                    <button class="main-btn" onclick="showSection('filtration')">Learn Filtration Process →</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ================= 3D MODEL ================= -->
+        <section id="model" class="page-section">
+            <div class="section-title">
+                <p class="section-tag">INTERACTIVE SECTION</p>
+                <h2>3D Motor Breakdown</h2>
+                <p>An exploded visual representation of the system's internal motor.</p>
+            </div>
+            
+            <div class="model-container">
+                <div class="video-container" style="border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+                    <video id="motorVideo" width="100%" autoplay loop muted playsinline>
+                        <source src="3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="model-info">
+                    <h3>Filtration Motor Structure</h3>
+                    <p>This 3D exploded view represents the internal components of the DC motor mechanism used in the emission control circuit. It highlights the electromagnetic coils, rotor, and impeller assembly.</p>
+                    <div class="molecule-props">
+                        <div class="prop"><strong>Component:</strong> DC Motor / Pump</div>
+                        <div class="prop"><strong>Function:</strong> Air/Fluid Suction</div>
+                        <div class="prop"><strong>Power Source:</strong> Direct Current (DC)</div>
+                    </div>
+                    <button class="main-btn" onclick="const v = document.getElementById('motorVideo'); v.paused ? v.play() : v.pause();">⏯ Toggle Animation</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ================= FILTRATION ================= -->
+        <section id="filtration" class="page-section">
+            <div class="section-title">
+                <p class="section-tag">POLLUTION CONTROL</p>
+                <h2>Filtration Process</h2>
+                <p>Filtration and pollution-control systems can remove certain particles and pollutants from gas streams.</p>
+            </div>
+            
+            <div class="process">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">🏭</div>
+                    <h3>Polluted Air</h3>
+                    <p>Polluted air enters a treatment or pollution control system.</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">🌀</div>
+                    <h3>Filtration</h3>
+                    <p>Filters can capture selected dust and particulate matter.</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">⚙️</div>
+                    <h3>Treatment</h3>
+                    <p>Additional pollution-control technologies can reduce selected pollutants.</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">🌿</div>
+                    <h3>Cleaner Air</h3>
+                    <p>Treated air can contain fewer targeted pollutants when released.</p>
+                </div>
+            </div>
+            
+            <div class="important-note">
+                <h3>💡 Important Note</h3>
+                <p>Filtration can help control certain air pollutants, but reducing emissions at their source and using cleaner energy are also important.</p>
+            </div>
+        </section>
+        
+        <!-- ================= PREVENTION ================= -->
+        <section id="prevention" class="page-section">
+            <div class="section-title">
+                <p class="section-tag">TAKE ACTION</p>
+                <h2>Prevention Methods</h2>
+                <p>Small and large actions can help reduce unnecessary greenhouse gas emissions.</p>
+            </div>
+            
+            <div class="prevention-grid">
+                <div class="prevention-card">
+                    <div class="prevention-icon">⚡</div>
+                    <h3>Save Energy</h3>
+                    <p>Turn off unnecessary electrical devices and use energy-efficient equipment.</p>
+                </div>
+                <div class="prevention-card">
+                    <div class="prevention-icon">🚌</div>
+                    <h3>Sustainable Transport</h3>
+                    <p>Walking, cycling, public transport and efficient travel can help reduce fuel use.</p>
+                </div>
+                <div class="prevention-card">
+                    <div class="prevention-icon">🌳</div>
+                    <h3>Protect Forests</h3>
+                    <p>Forest conservation and restoration support healthy ecosystems and the carbon cycle.</p>
+                </div>
+                <div class="prevention-card">
+                    <div class="prevention-icon">♻️</div>
+                    <h3>Reduce Waste</h3>
+                    <p>Reduce, reuse and recycle materials whenever practical.</p>
+                </div>
+                <div class="prevention-card">
+                    <div class="prevention-icon">☀️</div>
+                    <h3>Clean Energy</h3>
+                    <p>Increasing the use of low-emission energy sources can reduce dependence on fossil fuels.</p>
+                </div>
+                <div class="prevention-card">
+                    <div class="prevention-icon">💡</div>
+                    <h3>Spread Awareness</h3>
+                    <p>Learning and sharing accurate environmental information can encourage positive action.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <h2>🌍 EcoGuard</h2>
+        <p>Learn • Protect • Act for a Cleaner Future</p>
+        <small>Educational awareness project | © 2024</small>
+    </footer>
+    
+    <audio id="clickSound" preload="auto">
+        <source src="sound.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
