@@ -245,8 +245,8 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".feature-card, .glass-card, .gas-card, .prevention-card").forEach(el => {
     observer.observe(el);
-});
-/* ===== LOGIN SYSTEM ===== */
+}
+                                                                                            /* ===== LOGIN SYSTEM ===== */
 const loginModal = document.getElementById("loginModal");
 const loginForm = document.getElementById("loginForm");
 const profileBtn = document.getElementById("profileBtn");
@@ -282,6 +282,7 @@ loginForm.addEventListener("submit", (e) => {
         };
         
         localStorage.setItem("ecoguard_user", JSON.stringify(userData));
+        updateAllUsersOnLogin(userData);
         
         // Hide login modal and show profile
         hideLoginModal();
@@ -333,5 +334,34 @@ logoutBtn.addEventListener("click", () => {
     playClickSound();
 });
 
+// Get all users from localStorage
+function getAllUsersFromStorage() {
+    const currentUser = localStorage.getItem("ecoguard_user");
+    const allUsers = JSON.parse(localStorage.getItem("ecoguard_all_users") || "[]");
+    
+    if (currentUser) {
+        const user = JSON.parse(currentUser);
+        const userExists = allUsers.some(u => u.email === user.email);
+        if (!userExists) {
+            allUsers.push(user);
+            localStorage.setItem("ecoguard_all_users", JSON.stringify(allUsers));
+        }
+    }
+    
+    return allUsers;
+}
+
+// Update all users on login
+function updateAllUsersOnLogin(userData) {
+    const allUsers = JSON.parse(localStorage.getItem("ecoguard_all_users") || "[]");
+    const userExists = allUsers.some(u => u.email === userData.email);
+    
+    if (!userExists) {
+        allUsers.push(userData);
+        localStorage.setItem("ecoguard_all_users", JSON.stringify(allUsers));
+    }
+}
+
 // Initialize login system when page loads
 initLogin();
+);
