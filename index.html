@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EcoGuard | Carbon Awareness Platform</title>
+    <title>EcoGuard | Carbon Awareness</title>
 
     <meta
         name="description"
-        content="EcoGuard - Learn about carbon emissions, calculate your carbon footprint and discover ways to protect the environment."
+        content="EcoGuard - Learn about carbon emissions, greenhouse gases, prevention and calculate your carbon footprint."
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,248 +24,834 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+    <!-- =========================
+         BACKGROUND OVERLAY
+    ========================== -->
+    <div class="background-overlay"></div>
 
-<header class="navbar">
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <header class="navbar">
 
-    <div class="logo">
-        🌱 EcoGuard
-    </div>
+        <div class="nav-container">
 
-    <nav class="nav-menu" id="navMenu">
-
-        <button class="nav-btn active" data-section="home">
-            Home
-        </button>
-
-        <button class="nav-btn" data-section="about">
-            About
-        </button>
-
-        <button class="nav-btn" data-section="gases">
-            Gases
-        </button>
-
-        <button class="nav-btn" data-section="circuit">
-            Circuit Diagram
-        </button>
-
-        <button class="nav-btn" data-section="model">
-            3D Model
-        </button>
-
-        <button class="nav-btn" data-section="prevention">
-            Prevention
-        </button>
-
-        <button class="nav-btn" data-section="calculator">
-            Calculator
-        </button>
-
-    </nav>
-
-    <button
-        class="theme-toggle"
-        id="themeToggle"
-        aria-label="Toggle theme"
-    >
-        ☀️
-    </button>
-
-</header>
-
-
-<!-- ================= MAIN ================= -->
-
-<main>
-
-    <!-- ================= HOME ================= -->
-
-    <section id="home" class="page-section active-section">
-
-        <div class="hero">
-
-            <div class="hero-content">
-
-                <span class="hero-badge">
-                    🌍 Protect Our Planet
-                </span>
-
-                <h1>
-                    Understand Carbon.
-                    <span>Protect Tomorrow.</span>
-                </h1>
-
-                <p>
-                    EcoGuard helps you understand carbon emissions,
-                    explore greenhouse gases, calculate your carbon footprint,
-                    and discover simple ways to reduce your environmental impact.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <button
-                        class="primary-button"
-                        data-section-link="calculator"
-                    >
-                        🌱 Calculate My Footprint
-                    </button>
-
-                    <button
-                        class="secondary-button"
-                        data-section-link="about"
-                    >
-                        Learn More
-                    </button>
-
-                </div>
-
+            <div class="logo">
+                <span class="logo-icon">🌱</span>
+                <span>EcoGuard</span>
             </div>
 
-            <div class="hero-visual">
+            <nav class="nav-menu" id="navMenu">
 
-                <div class="earth-container">
+                <button class="nav-btn active" data-section="home">
+                    🏠 Home
+                </button>
 
-                    <div class="earth">
-                        🌍
-                    </div>
+                <button class="nav-btn" data-section="about">
+                    ℹ️ About
+                </button>
 
-                    <div class="orbit orbit-one"></div>
-                    <div class="orbit orbit-two"></div>
+                <button class="nav-btn" data-section="gases">
+                    🌫️ Gases
+                </button>
 
-                </div>
+                <button class="nav-btn" data-section="circuit">
+                    ⚡ Circuit
+                </button>
 
-            </div>
+                <button class="nav-btn" data-section="model">
+                    🧊 3D Model
+                </button>
+
+                <button class="nav-btn" data-section="prevention">
+                    🌱 Prevention
+                </button>
+
+                <button class="nav-btn calculator-nav-btn" data-section="calculator">
+                    🧮 Calculator
+                </button>
+
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Toggle theme"
+                title="Toggle theme"
+            >
+                ☀️
+            </button>
 
         </div>
 
-
-        <!-- ================= FEATURES ================= -->
-
-        <div class="section-container">
-
-            <div class="section-heading">
-
-                <span>EcoGuard Features</span>
-
-                <h2>
-                    Explore Our Platform
-                </h2>
-
-                <p>
-                    Everything you need to understand and reduce your carbon impact.
-                </p>
-
-            </div>
+    </header>
 
 
-            <div class="features-grid">
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main>
 
-                <div class="feature-card">
+        <!-- =========================
+             HOME
+        ========================== -->
+        <section id="home" class="page-section active-section">
 
-                    <div class="feature-icon">
-                        🌍
+            <div class="hero">
+
+                <div class="hero-glass">
+
+                    <div class="hero-badge">
+                        🌍 Protect Our Planet
                     </div>
 
-                    <h3>
-                        Carbon Awareness
-                    </h3>
+                    <h1>
+                        Welcome to
+                        <span>EcoGuard</span>
+                    </h1>
 
                     <p>
-                        Understand how carbon emissions affect our planet,
-                        climate and future.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        🧪
-                    </div>
-
-                    <h3>
-                        Greenhouse Gases
-                    </h3>
-
-                    <p>
-                        Learn about CO₂, methane, nitrous oxide and other
-                        greenhouse gases.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        🤖
-                    </div>
-
-                    <h3>
-                        AI Carbon Analysis
-                    </h3>
-
-                    <p>
-                        Use the EcoGuard AI Carbon Analyzer to estimate your
-                        carbon footprint.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        📊
-                    </div>
-
-                    <h3>
-                        Real Statistics
-                    </h3>
-
-                    <p>
-                        Explore real-world carbon emission statistics from
-                        different countries.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= AI CARBON ANALYZER MAIN DASHBOARD ================= -->
-
-        <div class="section-container">
-
-            <div class="dashboard-ai-box">
-
-                <div class="dashboard-ai-icon">
-                    🤖
-                </div>
-
-                <div class="dashboard-ai-content">
-
-                    <span class="ai-label">
-                        ECOGUARD AI
-                    </span>
-
-                    <h2>
-                        AI Carbon Analyzer
-                    </h2>
-
-                    <p>
-                        Estimate your carbon footprint with our AI-powered
-                        analyzer and discover practical ways to reduce your
+                        Understand carbon emissions, explore greenhouse gases,
+                        discover prevention methods and calculate your
                         environmental impact.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <button
+                            class="glass-action-btn primary-action"
+                            data-section-link="calculator"
+                        >
+                            🧮 Calculate Footprint
+                        </button>
+
+                        <button
+                            class="glass-action-btn"
+                            data-section-link="prevention"
+                        >
+                            🌱 Reduce Emissions
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 FEATURES
+            ========================== -->
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <span>🌿</span>
+                    <h2>Explore EcoGuard</h2>
+                    <p>
+                        Learn, understand and take action for a cleaner future.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+
+                    <article class="glass-card feature-card">
+
+                        <div class="card-icon">📊</div>
+
+                        <h3>Carbon Statistics</h3>
+
+                        <p>
+                            Explore global and country-level carbon dioxide
+                            emission statistics.
+                        </p>
+
+                        <button
+                            class="small-glass-btn"
+                            data-section-link="home"
+                        >
+                            View Statistics
+                        </button>
+
+                    </article>
+
+
+                    <article class="glass-card feature-card">
+
+                        <div class="card-icon">🌫️</div>
+
+                        <h3>Greenhouse Gases</h3>
+
+                        <p>
+                            Learn about CO₂, methane, nitrous oxide and other
+                            important greenhouse gases.
+                        </p>
+
+                        <button
+                            class="small-glass-btn"
+                            data-section-link="gases"
+                        >
+                            Explore Gases
+                        </button>
+
+                    </article>
+
+
+                    <article class="glass-card feature-card">
+
+                        <div class="card-icon">🧮</div>
+
+                        <h3>Carbon Calculator</h3>
+
+                        <p>
+                            Estimate your monthly carbon footprint using simple
+                            everyday activities.
+                        </p>
+
+                        <button
+                            class="small-glass-btn"
+                            data-section-link="calculator"
+                        >
+                            Calculate
+                        </button>
+
+                    </article>
+
+
+                    <article class="glass-card feature-card">
+
+                        <div class="card-icon">🌱</div>
+
+                        <h3>Prevention</h3>
+
+                        <p>
+                            Discover practical ways to reduce emissions and
+                            protect the environment.
+                        </p>
+
+                        <button
+                            class="small-glass-btn"
+                            data-section-link="prevention"
+                        >
+                            Learn More
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 REAL WORLD STATISTICS
+            ========================== -->
+            <div class="section-container statistics-section">
+
+                <div class="section-heading">
+
+                    <span>📊</span>
+
+                    <h2>Real-World Carbon Statistics</h2>
+
+                    <p>
+                        Global carbon dioxide emission information presented
+                        through simple visual statistics.
+                    </p>
+
+                </div>
+
+
+                <!-- Main statistics -->
+                <div class="statistics-grid">
+
+                    <div class="glass-card statistic-card">
+
+                        <div class="stat-icon">🌍</div>
+
+                        <div class="stat-number">
+                            <span
+                                class="counter"
+                                data-target="38.6"
+                                data-decimals="1"
+                            >0</span>
+                            B
+                        </div>
+
+                        <div class="stat-label">
+                            Global CO₂ emissions
+                        </div>
+
+                        <div class="stat-unit">
+                            billion tonnes
+                        </div>
+
+                    </div>
+
+
+                    <div class="glass-card statistic-card">
+
+                        <div class="stat-icon">🇨🇳</div>
+
+                        <div class="stat-number">
+                            <span
+                                class="counter"
+                                data-target="31.84"
+                                data-decimals="2"
+                            >0</span>%
+                        </div>
+
+                        <div class="stat-label">
+                            China
+                        </div>
+
+                        <div class="stat-unit">
+                            12.3 billion tonnes
+                        </div>
+
+                    </div>
+
+
+                    <div class="glass-card statistic-card">
+
+                        <div class="stat-icon">🇺🇸</div>
+
+                        <div class="stat-number">
+                            <span
+                                class="counter"
+                                data-target="12.71"
+                                data-decimals="2"
+                            >0</span>%
+                        </div>
+
+                        <div class="stat-label">
+                            United States
+                        </div>
+
+                        <div class="stat-unit">
+                            4.9 billion tonnes
+                        </div>
+
+                    </div>
+
+
+                    <div class="glass-card statistic-card">
+
+                        <div class="stat-icon">🇮🇳</div>
+
+                        <div class="stat-number">
+                            <span
+                                class="counter"
+                                data-target="8.27"
+                                data-decimals="2"
+                            >0</span>%
+                        </div>
+
+                        <div class="stat-label">
+                            India
+                        </div>
+
+                        <div class="stat-unit">
+                            3.19 billion tonnes
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Country statistics -->
+                <div class="glass-card country-statistics">
+
+                    <h3>🌍 Country Emission Share</h3>
+
+                    <div class="country-list">
+
+                        <div class="country-item">
+
+                            <div class="country-info">
+                                <span>🇨🇳 China</span>
+                                <strong>31.84%</strong>
+                            </div>
+
+                            <div class="country-bar">
+                                <div
+                                    class="country-fill"
+                                    data-width="31.84"
+                                ></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="country-item">
+
+                            <div class="country-info">
+                                <span>🇺🇸 United States</span>
+                                <strong>12.71%</strong>
+                            </div>
+
+                            <div class="country-bar">
+                                <div
+                                    class="country-fill"
+                                    data-width="12.71"
+                                ></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="country-item">
+
+                            <div class="country-info">
+                                <span>🇮🇳 India</span>
+                                <strong>8.27%</strong>
+                            </div>
+
+                            <div class="country-bar">
+                                <div
+                                    class="country-fill"
+                                    data-width="8.27"
+                                ></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="country-item">
+
+                            <div class="country-info">
+                                <span>🇷🇺 Russia</span>
+                                <strong>4.61%</strong>
+                            </div>
+
+                            <div class="country-bar">
+                                <div
+                                    class="country-fill"
+                                    data-width="4.61"
+                                ></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="country-item">
+
+                            <div class="country-info">
+                                <span>🇯🇵 Japan</span>
+                                <strong>2.49%</strong>
+                            </div>
+
+                            <div class="country-bar">
+                                <div
+                                    class="country-fill"
+                                    data-width="2.49"
+                                ></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <p class="statistics-source">
+                        Source: Our World in Data — Global Carbon Budget (2025),
+                        2024 territorial CO₂ emissions.
+                    </p>
+
+                </div>
+
+
+                <!-- Per capita -->
+                <div class="glass-card per-capita-card">
+
+                    <h3>👤 CO₂ Emissions Per Person</h3>
+
+                    <div class="per-capita-grid">
+
+                        <div class="per-capita-item">
+                            <span>🇺🇸 United States</span>
+                            <strong>14.2 t</strong>
+                        </div>
+
+                        <div class="per-capita-item">
+                            <span>🇷🇺 Russia</span>
+                            <strong>12.29 t</strong>
+                        </div>
+
+                        <div class="per-capita-item">
+                            <span>🇨🇳 China</span>
+                            <strong>8.66 t</strong>
+                        </div>
+
+                        <div class="per-capita-item">
+                            <span>🇮🇳 India</span>
+                            <strong>2.2 t</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+        <section id="about" class="page-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <span>ℹ️</span>
+                    <h2>About EcoGuard</h2>
+                    <p>
+                        A simple environmental awareness platform.
+                    </p>
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="glass-card about-card">
+
+                        <div class="card-icon">🌍</div>
+
+                        <h3>Our Goal</h3>
+
+                        <p>
+                            EcoGuard helps users understand carbon emissions
+                            and their effect on our environment.
+                        </p>
+
+                    </div>
+
+
+                    <div class="glass-card about-card">
+
+                        <div class="card-icon">💡</div>
+
+                        <h3>Learn</h3>
+
+                        <p>
+                            Explore greenhouse gases, carbon statistics,
+                            environmental technologies and prevention methods.
+                        </p>
+
+                    </div>
+
+
+                    <div class="glass-card about-card">
+
+                        <div class="card-icon">🌱</div>
+
+                        <h3>Take Action</h3>
+
+                        <p>
+                            Use the carbon calculator and practical prevention
+                            tips to understand how everyday choices can help.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GASES
+        ========================== -->
+        <section id="gases" class="page-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span>🌫️</span>
+
+                    <h2>Greenhouse Gases</h2>
+
+                    <p>
+                        Important gases that contribute to the greenhouse effect.
+                    </p>
+
+                </div>
+
+
+                <div class="gas-grid">
+
+                    <article class="glass-card gas-card">
+
+                        <div class="gas-icon">💨</div>
+
+                        <h3>Carbon Dioxide</h3>
+
+                        <span class="gas-formula">CO₂</span>
+
+                        <p>
+                            Released mainly through fossil fuel combustion,
+                            industrial processes and land-use changes.
+                        </p>
+
+                    </article>
+
+
+                    <article class="glass-card gas-card">
+
+                        <div class="gas-icon">🐄</div>
+
+                        <h3>Methane</h3>
+
+                        <span class="gas-formula">CH₄</span>
+
+                        <p>
+                            Produced by agriculture, livestock, landfills and
+                            fossil fuel production.
+                        </p>
+
+                    </article>
+
+
+                    <article class="glass-card gas-card">
+
+                        <div class="gas-icon">🌾</div>
+
+                        <h3>Nitrous Oxide</h3>
+
+                        <span class="gas-formula">N₂O</span>
+
+                        <p>
+                            Associated with agricultural soils, fertilizers
+                            and several industrial activities.
+                        </p>
+
+                    </article>
+
+
+                    <article class="glass-card gas-card">
+
+                        <div class="gas-icon">🏭</div>
+
+                        <h3>Industrial Gases</h3>
+
+                        <span class="gas-formula">F-Gases</span>
+
+                        <p>
+                            Certain industrial gases can have very high
+                            greenhouse warming effects.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CIRCUIT
+        ========================== -->
+        <section id="circuit" class="page-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span>⚡</span>
+
+                    <h2>Carbon Capture Circuit Diagram</h2>
+
+                    <p>
+                        Explore the carbon capture system concept.
+                    </p>
+
+                </div>
+
+
+                <div class="glass-card circuit-card">
+
+                    <img
+                        src="circuit-diagram.svg"
+                        alt="EcoGuard carbon capture circuit diagram"
+                        class="circuit-image"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             3D MODEL
+        ========================== -->
+        <section id="model" class="page-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span>🧊</span>
+
+                    <h2>3D Model</h2>
+
+                    <p>
+                        Visual demonstration of the EcoGuard concept.
+                    </p>
+
+                </div>
+
+
+                <div class="glass-card model-card">
+
+                    <video
+                        class="model-video"
+                        controls
+                        muted
+                        loop
+                        playsinline
+                    >
+                        <source src="3.mp4" type="video/mp4">
+                        Your browser does not support video playback.
+                    </video>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PREVENTION
+        ========================== -->
+        <section id="prevention" class="page-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span>🌱</span>
+
+                    <h2>Prevention</h2>
+
+                    <p>
+                        Simple ways to reduce your environmental impact.
+                    </p>
+
+                </div>
+
+
+                <div class="prevention-grid">
+
+                    <article class="glass-card prevention-card">
+
+                        <div class="card-icon">🚲</div>
+
+                        <h3>Use Public Transport</h3>
+
+                        <p>
+                            Choose public transport, cycling or walking when
+                            possible to reduce vehicle emissions.
+                        </p>
+
+                    </article>
+
+
+                    <article class="glass-card prevention-card">
+
+                        <div class="card-icon">⚡</div>
+
+                        <h3>Save Electricity</h3>
+
+                        <p>
+                            Turn off unused appliances and choose efficient
+                            electrical devices.
+                        </p>
+
+                    </article>
+
+
+                    <article class="glass-card prevention-card">
+
+                        <div class="card-icon">🌳</div>
+
+                        <h3>Protect Forests</h3>
+
+                        <p>
+                            Forests absorb carbon dioxide and support healthy
+                            ecosystems.
+                        </p>
+
+                    </article>
+
+
+                    <article class="glass-card prevention-card">
+
+                        <div class="card-icon">♻️</div>
+
+                        <h3>Reduce Waste</h3>
+
+                        <p>
+                            Reuse products, recycle materials and avoid
+                            unnecessary consumption.
+                        </p>
+
+                    </article>
+
+
+                    <article class="glass-card prevention-card">
+
+                        <div class="card-icon">🥗</div>
+
+                        <h3>Consider Food Choices</h3>
+
+                        <p>
+                            Reducing high-emission food consumption can help
+                            lower your environmental footprint.
+                        </p>
+
+                    </article>
+
+
+                    <article class="glass-card prevention-card">
+
+                        <div class="card-icon">✈️</div>
+
+                        <h3>Reduce Unnecessary Flights</h3>
+
+                        <p>
+                            Consider trains, buses or virtual meetings when
+                            practical alternatives are available.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- AI ANALYZER PRESERVED -->
+                <div class="prevention-ai-box">
+
+                    <div class="ai-button-icon">🤖</div>
+
+                    <h3>EcoGuard AI Carbon Analyzer</h3>
+
+                    <p>
+                        Estimate your carbon footprint and discover simple
+                        ways to reduce your environmental impact.
                     </p>
 
                     <a
                         href="ai-carbon-analyzer.html"
-                        class="dashboard-ai-button"
+                        class="carbon-ai-button"
                     >
                         🤖 Open AI Carbon Analyzer
                     </a>
@@ -274,1100 +860,323 @@
 
             </div>
 
-        </div>
+        </section>
 
 
-        <!-- ================= REAL WORLD STATISTICS ================= -->
+        <!-- =========================
+             CALCULATOR
+        ========================== -->
+        <section id="calculator" class="page-section">
 
-        <div class="section-container statistics-section">
+            <div class="section-container">
 
-            <div class="section-heading">
+                <div class="section-heading">
 
-                <span>
-                    Real-World Data
-                </span>
+                    <span>🧮</span>
 
-                <h2>
-                    Real-World Carbon Statistics
-                </h2>
-
-                <p>
-                    Global territorial CO₂ emissions and country-level comparisons.
-                </p>
-
-            </div>
-
-
-            <!-- GLOBAL STATS -->
-
-            <div class="statistics-grid">
-
-                <div class="stat-card">
-
-                    <div class="stat-icon">
-                        🌎
-                    </div>
-
-                    <h3>
-                        Global CO₂ Emissions
-                    </h3>
-
-                    <div
-                        class="stat-number counter"
-                        data-target="38.6"
-                        data-decimals="1"
-                    >
-                        0
-                    </div>
+                    <h2>Carbon Footprint Calculator</h2>
 
                     <p>
-                        Billion tonnes
-                    </p>
-
-                    <small>
-                        Approximate 2024 territorial CO₂ emissions
-                    </small>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-icon">
-                        🇨🇳
-                    </div>
-
-                    <h3>
-                        China
-                    </h3>
-
-                    <div
-                        class="stat-number counter"
-                        data-target="31.84"
-                        data-decimals="2"
-                    >
-                        0
-                    </div>
-
-                    <p>
-                        % of global emissions
-                    </p>
-
-                    <small>
-                        ≈ 12.3 billion tonnes
-                    </small>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-icon">
-                        🇺🇸
-                    </div>
-
-                    <h3>
-                        United States
-                    </h3>
-
-                    <div
-                        class="stat-number counter"
-                        data-target="12.71"
-                        data-decimals="2"
-                    >
-                        0
-                    </div>
-
-                    <p>
-                        % of global emissions
-                    </p>
-
-                    <small>
-                        ≈ 4.9 billion tonnes
-                    </small>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-icon">
-                        🇮🇳
-                    </div>
-
-                    <h3>
-                        India
-                    </h3>
-
-                    <div
-                        class="stat-number counter"
-                        data-target="8.27"
-                        data-decimals="2"
-                    >
-                        0
-                    </div>
-
-                    <p>
-                        % of global emissions
-                    </p>
-
-                    <small>
-                        ≈ 3.19 billion tonnes
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <!-- COUNTRY STATISTICS -->
-
-            <div class="country-statistics">
-
-                <h3>
-                    🌍 Country Emission Comparison
-                </h3>
-
-
-                <div class="country-row">
-
-                    <div class="country-info">
-                        <span>🇨🇳 China</span>
-                        <strong>31.84%</strong>
-                    </div>
-
-                    <div class="country-bar">
-                        <div
-                            class="country-fill"
-                            data-width="31.84"
-                            style="width: 31.84%;"
-                        ></div>
-                    </div>
-
-                    <p>
-                        ≈ 12.3 billion tonnes
+                        Estimate your monthly carbon footprint from a few
+                        everyday activities.
                     </p>
 
                 </div>
 
 
-                <div class="country-row">
+                <div class="calculator-layout">
 
-                    <div class="country-info">
-                        <span>🇺🇸 United States</span>
-                        <strong>12.71%</strong>
-                    </div>
+                    <!-- INPUT PANEL -->
+                    <div class="glass-card calculator-input-card">
 
-                    <div class="country-bar">
-                        <div
-                            class="country-fill"
-                            data-width="12.71"
-                            style="width: 12.71%;"
-                        ></div>
-                    </div>
+                        <h3>📋 Your Monthly Activities</h3>
 
-                    <p>
-                        ≈ 4.9 billion tonnes
-                    </p>
+                        <!-- Driving -->
+                        <div class="calculator-input">
 
-                </div>
+                            <div class="input-header">
 
+                                <label for="carbonCar">
+                                    🚗 Driving
+                                </label>
 
-                <div class="country-row">
+                                <output id="carbonCarOut">
+                                    400 km
+                                </output>
 
-                    <div class="country-info">
-                        <span>🇮🇳 India</span>
-                        <strong>8.27%</strong>
-                    </div>
+                            </div>
 
-                    <div class="country-bar">
-                        <div
-                            class="country-fill"
-                            data-width="8.27"
-                            style="width: 8.27%;"
-                        ></div>
-                    </div>
+                            <input
+                                type="range"
+                                id="carbonCar"
+                                min="0"
+                                max="1500"
+                                value="400"
+                                step="10"
+                            >
 
-                    <p>
-                        ≈ 3.19 billion tonnes
-                    </p>
-
-                </div>
-
-
-                <div class="country-row">
-
-                    <div class="country-info">
-                        <span>🇷🇺 Russia</span>
-                        <strong>4.61%</strong>
-                    </div>
-
-                    <div class="country-bar">
-                        <div
-                            class="country-fill"
-                            data-width="4.61"
-                            style="width: 4.61%;"
-                        ></div>
-                    </div>
-
-                    <p>
-                        ≈ 1.78 billion tonnes
-                    </p>
-
-                </div>
-
-
-                <div class="country-row">
-
-                    <div class="country-info">
-                        <span>🇯🇵 Japan</span>
-                        <strong>2.49%</strong>
-                    </div>
-
-                    <div class="country-bar">
-                        <div
-                            class="country-fill"
-                            data-width="2.49"
-                            style="width: 2.49%;"
-                        ></div>
-                    </div>
-
-                    <p>
-                        Major global emitter
-                    </p>
-
-                </div>
-
-
-                <div class="country-row">
-
-                    <div class="country-info">
-                        <span>🇧🇷 Brazil</span>
-                        <strong>Major emitter</strong>
-                    </div>
-
-                    <div class="country-bar">
-                        <div
-                            class="country-fill"
-                            data-width="2.0"
-                            style="width: 2%;"
-                        ></div>
-                    </div>
-
-                    <p>
-                        Significant contributor
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PER CAPITA -->
-
-            <div class="per-capita">
-
-                <h3>
-                    👤 CO₂ Emissions Per Person
-                </h3>
-
-                <div class="per-capita-grid">
-
-                    <div>
-                        🇺🇸
-                        <strong>14.2 t</strong>
-                        <span>United States</span>
-                    </div>
-
-                    <div>
-                        🇷🇺
-                        <strong>12.29 t</strong>
-                        <span>Russia</span>
-                    </div>
-
-                    <div>
-                        🇨🇳
-                        <strong>8.66 t</strong>
-                        <span>China</span>
-                    </div>
-
-                    <div>
-                        🇮🇳
-                        <strong>2.2 t</strong>
-                        <span>India</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="statistics-source">
-
-                <strong>
-                    Source:
-                </strong>
-
-                Our World in Data — Global Carbon Budget (2025),
-                2024 territorial CO₂ emissions.
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= ABOUT ================= -->
-
-    <section id="about" class="page-section">
-
-        <div class="section-container">
-
-            <div class="section-heading">
-
-                <span>
-                    About EcoGuard
-                </span>
-
-                <h2>
-                    Building a Cleaner Future
-                </h2>
-
-                <p>
-                    EcoGuard is an educational platform designed to make
-                    carbon awareness simple and understandable.
-                </p>
-
-            </div>
-
-
-            <div class="about-grid">
-
-                <div class="glass-card">
-
-                    <div class="card-icon">
-                        🌱
-                    </div>
-
-                    <h3>
-                        Our Mission
-                    </h3>
-
-                    <p>
-                        To help students and communities understand carbon
-                        emissions and take meaningful environmental action.
-                    </p>
-
-                </div>
-
-
-                <div class="glass-card">
-
-                    <div class="card-icon">
-                        🔬
-                    </div>
-
-                    <h3>
-                        Education
-                    </h3>
-
-                    <p>
-                        Learn about greenhouse gases, carbon emissions,
-                        environmental technology and sustainability.
-                    </p>
-
-                </div>
-
-
-                <div class="glass-card">
-
-                    <div class="card-icon">
-                        🌍
-                    </div>
-
-                    <h3>
-                        Sustainability
-                    </h3>
-
-                    <p>
-                        Small changes in transportation, energy and lifestyle
-                        can contribute to a healthier planet.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= GASES ================= -->
-
-    <section id="gases" class="page-section">
-
-        <div class="section-container">
-
-            <div class="section-heading">
-
-                <span>
-                    Climate Science
-                </span>
-
-                <h2>
-                    Greenhouse Gases
-                </h2>
-
-                <p>
-                    Different gases contribute to the greenhouse effect
-                    in different ways.
-                </p>
-
-            </div>
-
-
-            <div class="gases-grid">
-
-                <div class="gas-card">
-
-                    <div class="gas-icon">
-                        CO₂
-                    </div>
-
-                    <h3>
-                        Carbon Dioxide
-                    </h3>
-
-                    <p>
-                        Released mainly from fossil fuel combustion,
-                        industrial activity and deforestation.
-                    </p>
-
-                </div>
-
-
-                <div class="gas-card">
-
-                    <div class="gas-icon">
-                        CH₄
-                    </div>
-
-                    <h3>
-                        Methane
-                    </h3>
-
-                    <p>
-                        Produced by agriculture, waste management,
-                        fossil fuel extraction and livestock.
-                    </p>
-
-                </div>
-
-
-                <div class="gas-card">
-
-                    <div class="gas-icon">
-                        N₂O
-                    </div>
-
-                    <h3>
-                        Nitrous Oxide
-                    </h3>
-
-                    <p>
-                        Associated with agricultural soils,
-                        fertilizers and industrial processes.
-                    </p>
-
-                </div>
-
-
-                <div class="gas-card">
-
-                    <div class="gas-icon">
-                        💨
-                    </div>
-
-                    <h3>
-                        Other Gases
-                    </h3>
-
-                    <p>
-                        Other greenhouse gases can also contribute
-                        to atmospheric warming.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CIRCUIT ================= -->
-
-    <section id="circuit" class="page-section">
-
-        <div class="section-container">
-
-            <div class="section-heading">
-
-                <span>
-                    Project Technology
-                </span>
-
-                <h2>
-                    Circuit Diagram
-                </h2>
-
-                <p>
-                    Explore the EcoGuard project circuit diagram.
-                </p>
-
-            </div>
-
-
-            <div class="media-card">
-
-                <img
-                    src="circuit-diagram.svg"
-                    alt="EcoGuard circuit diagram"
-                >
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= 3D MODEL ================= -->
-
-    <section id="model" class="page-section">
-
-        <div class="section-container">
-
-            <div class="section-heading">
-
-                <span>
-                    Interactive Model
-                </span>
-
-                <h2>
-                    3D Model
-                </h2>
-
-                <p>
-                    Explore the EcoGuard project model.
-                </p>
-
-            </div>
-
-
-            <div class="video-card">
-
-                <video
-                    src="3.mp4"
-                    controls
-                    muted
-                    playsinline
-                    loop
-                >
-                    Your browser does not support video playback.
-                </video>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PREVENTION ================= -->
-
-    <section id="prevention" class="page-section">
-
-        <div class="section-container">
-
-            <div class="section-heading">
-
-                <span>
-                    Take Action
-                </span>
-
-                <h2>
-                    Carbon Prevention
-                </h2>
-
-                <p>
-                    Simple actions can help reduce carbon emissions.
-                </p>
-
-            </div>
-
-
-            <div class="prevention-grid">
-
-                <div class="prevention-card">
-
-                    <div class="prevention-icon">
-                        🚲
-                    </div>
-
-                    <h3>
-                        Use Public Transport
-                    </h3>
-
-                    <p>
-                        Walk, cycle or use public transportation
-                        whenever possible.
-                    </p>
-
-                </div>
-
-
-                <div class="prevention-card">
-
-                    <div class="prevention-icon">
-                        ⚡
-                    </div>
-
-                    <h3>
-                        Save Electricity
-                    </h3>
-
-                    <p>
-                        Turn off lights and appliances when they
-                        are not needed.
-                    </p>
-
-                </div>
-
-
-                <div class="prevention-card">
-
-                    <div class="prevention-icon">
-                        🌳
-                    </div>
-
-                    <h3>
-                        Plant Trees
-                    </h3>
-
-                    <p>
-                        Protect forests and support tree planting
-                        initiatives.
-                    </p>
-
-                </div>
-
-
-                <div class="prevention-card">
-
-                    <div class="prevention-icon">
-                        ♻️
-                    </div>
-
-                    <h3>
-                        Recycle
-                    </h3>
-
-                    <p>
-                        Reduce waste and recycle materials
-                        whenever possible.
-                    </p>
-
-                </div>
-
-
-                <div class="prevention-card">
-
-                    <div class="prevention-icon">
-                        💧
-                    </div>
-
-                    <h3>
-                        Save Resources
-                    </h3>
-
-                    <p>
-                        Use water and other natural resources
-                        responsibly.
-                    </p>
-
-                </div>
-
-
-                <div class="prevention-card">
-
-                    <div class="prevention-icon">
-                        🌱
-                    </div>
-
-                    <h3>
-                        Choose Sustainable Options
-                    </h3>
-
-                    <p>
-                        Support products and lifestyles that
-                        reduce environmental impact.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- AI BUTTON ALSO AVAILABLE HERE -->
-
-            <div class="prevention-ai-box">
-
-                <div class="ai-button-icon">
-                    🤖
-                </div>
-
-                <h3>
-                    EcoGuard AI Carbon Analyzer
-                </h3>
-
-                <p>
-                    Estimate your carbon footprint and discover
-                    simple ways to reduce your environmental impact.
-                </p>
-
-                <a
-                    href="ai-carbon-analyzer.html"
-                    class="carbon-ai-button"
-                >
-                    🤖 Open AI Carbon Analyzer
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CALCULATOR ================= -->
-
-    <section id="calculator" class="page-section">
-
-        <div class="section-container">
-
-            <div class="section-heading">
-
-                <span>
-                    Carbon Calculator
-                </span>
-
-                <h2>
-                    Calculate Your Carbon Footprint
-                </h2>
-
-                <p>
-                    Enter your monthly activities to get an educational
-                    estimate of your carbon emissions.
-                </p>
-
-            </div>
-
-
-            <div class="calculator-card">
-
-                <!-- TRANSPORT -->
-
-                <div class="calculator-input">
-
-                    <div class="calculator-label">
-
-                        <span>
-                            🚗 Driving
-                        </span>
-
-                        <output id="carbonCarOut">
-                            400 km
-                        </output>
-
-                    </div>
-
-                    <input
-                        type="range"
-                        id="carbonCar"
-                        min="0"
-                        max="1500"
-                        value="400"
-                        step="10"
-                    >
-
-                    <small>
-                        Approx. 0.19 kg CO₂ per km
-                    </small>
-
-                </div>
-
-
-                <!-- ELECTRICITY -->
-
-                <div class="calculator-input">
-
-                    <div class="calculator-label">
-
-                        <span>
-                            ⚡ Home Electricity
-                        </span>
-
-                        <output id="carbonPowerOut">
-                            180 kWh
-                        </output>
-
-                    </div>
-
-                    <input
-                        type="range"
-                        id="carbonPower"
-                        min="0"
-                        max="800"
-                        value="180"
-                        step="5"
-                    >
-
-                    <small>
-                        Approx. 0.42 kg CO₂ per kWh
-                    </small>
-
-                </div>
-
-
-                <!-- FOOD -->
-
-                <div class="calculator-input">
-
-                    <div class="calculator-label">
-
-                        <span>
-                            🍖 Meat-Based Meals
-                        </span>
-
-                        <output id="carbonMealsOut">
-                            12 meals
-                        </output>
-
-                    </div>
-
-                    <input
-                        type="range"
-                        id="carbonMeals"
-                        min="0"
-                        max="60"
-                        value="12"
-                        step="1"
-                    >
-
-                    <small>
-                        Approx. 2.5 kg CO₂ per meal
-                    </small>
-
-                </div>
-
-
-                <!-- FLIGHTS -->
-
-                <div class="calculator-input">
-
-                    <div class="calculator-label">
-
-                        <span>
-                            ✈️ Short Flights
-                        </span>
-
-                        <output id="carbonFlightsOut">
-                            0 flights
-                        </output>
-
-                    </div>
-
-                    <input
-                        type="range"
-                        id="carbonFlights"
-                        min="0"
-                        max="6"
-                        value="0"
-                        step="1"
-                    >
-
-                    <small>
-                        Approx. 255 kg CO₂ per flight
-                    </small>
-
-                </div>
-
-
-                <!-- RESULT -->
-
-                <div class="calculator-result">
-
-                    <span>
-                        Estimated Monthly Footprint
-                    </span>
-
-                    <strong id="carbonTotal">
-                        0 kg
-                    </strong>
-
-                    <p id="carbonComparison">
-                        Calculate your estimated footprint.
-                    </p>
-
-                </div>
-
-
-                <!-- CATEGORY BREAKDOWN -->
-
-                <div class="calculator-breakdown">
-
-                    <h3>
-                        Emission Breakdown
-                    </h3>
-
-
-                    <div class="calculator-bar-item">
-
-                        <div class="calculator-bar-label">
-
-                            <span>
-                                🚗 Transport
-                            </span>
-
-                            <strong id="carbonTransportVal">
-                                0 kg
-                            </strong>
+                            <div class="range-labels">
+                                <span>0 km</span>
+                                <span>1500 km</span>
+                            </div>
 
                         </div>
 
-                        <div class="calculator-bar">
-                            <div
-                                id="carbonTransportBar"
-                                class="calculator-bar-fill"
-                            ></div>
+
+                        <!-- Electricity -->
+                        <div class="calculator-input">
+
+                            <div class="input-header">
+
+                                <label for="carbonPower">
+                                    ⚡ Home Electricity
+                                </label>
+
+                                <output id="carbonPowerOut">
+                                    180 kWh
+                                </output>
+
+                            </div>
+
+                            <input
+                                type="range"
+                                id="carbonPower"
+                                min="0"
+                                max="800"
+                                value="180"
+                                step="10"
+                            >
+
+                            <div class="range-labels">
+                                <span>0 kWh</span>
+                                <span>800 kWh</span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Food -->
+                        <div class="calculator-input">
+
+                            <div class="input-header">
+
+                                <label for="carbonMeals">
+                                    🍖 Meat-Based Meals
+                                </label>
+
+                                <output id="carbonMealsOut">
+                                    12 meals
+                                </output>
+
+                            </div>
+
+                            <input
+                                type="range"
+                                id="carbonMeals"
+                                min="0"
+                                max="60"
+                                value="12"
+                                step="1"
+                            >
+
+                            <div class="range-labels">
+                                <span>0 meals</span>
+                                <span>60 meals</span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Flights -->
+                        <div class="calculator-input">
+
+                            <div class="input-header">
+
+                                <label for="carbonFlights">
+                                    ✈️ Short Flights
+                                </label>
+
+                                <output id="carbonFlightsOut">
+                                    0 flights
+                                </output>
+
+                            </div>
+
+                            <input
+                                type="range"
+                                id="carbonFlights"
+                                min="0"
+                                max="6"
+                                value="0"
+                                step="1"
+                            >
+
+                            <div class="range-labels">
+                                <span>0</span>
+                                <span>6 flights</span>
+                            </div>
+
                         </div>
 
                     </div>
 
 
-                    <div class="calculator-bar-item">
+                    <!-- RESULT PANEL -->
+                    <div class="glass-card calculator-result-card">
 
-                        <div class="calculator-bar-label">
-
-                            <span>
-                                ⚡ Energy
-                            </span>
-
-                            <strong id="carbonEnergyVal">
-                                0 kg
-                            </strong>
-
+                        <div class="result-icon">
+                            🌍
                         </div>
 
-                        <div class="calculator-bar">
-                            <div
-                                id="carbonEnergyBar"
-                                class="calculator-bar-fill"
-                            ></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="calculator-bar-item">
-
-                        <div class="calculator-bar-label">
-
-                            <span>
-                                🍖 Food
-                            </span>
-
-                            <strong id="carbonFoodVal">
-                                0 kg
-                            </strong>
-
-                        </div>
-
-                        <div class="calculator-bar">
-                            <div
-                                id="carbonFoodBar"
-                                class="calculator-bar-fill"
-                            ></div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TIP -->
-
-                <div class="calculator-tip">
-
-                    <div class="calculator-tip-icon">
-                        💡
-                    </div>
-
-                    <div>
-
-                        <h3 id="carbonTipTitle">
-                            Start Reducing Your Footprint
-                        </h3>
-
-                        <p id="carbonTipText">
-                            Adjust the sliders above to see where
-                            your largest emissions come from.
+                        <p class="result-small-title">
+                            Estimated Monthly Footprint
                         </p>
 
+                        <div class="total-result">
+                            <span id="carbonTotal">0</span>
+                            <small>kg CO₂e</small>
+                        </div>
+
+                        <p
+                            id="carbonComparison"
+                            class="comparison-text"
+                        >
+                            Calculating...
+                        </p>
+
+
+                        <div class="calculator-bars">
+
+                            <div class="carbon-bar-item">
+
+                                <div class="bar-label">
+                                    <span>🚗 Transport</span>
+                                    <strong id="carbonTransportVal">
+                                        0 kg
+                                    </strong>
+                                </div>
+
+                                <div class="carbon-bar">
+                                    <div
+                                        id="carbonTransportBar"
+                                        class="carbon-bar-fill"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="carbon-bar-item">
+
+                                <div class="bar-label">
+                                    <span>⚡ Energy</span>
+                                    <strong id="carbonEnergyVal">
+                                        0 kg
+                                    </strong>
+                                </div>
+
+                                <div class="carbon-bar">
+                                    <div
+                                        id="carbonEnergyBar"
+                                        class="carbon-bar-fill"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="carbon-bar-item">
+
+                                <div class="bar-label">
+                                    <span>🍖 Food</span>
+                                    <strong id="carbonFoodVal">
+                                        0 kg
+                                    </strong>
+                                </div>
+
+                                <div class="carbon-bar">
+                                    <div
+                                        id="carbonFoodBar"
+                                        class="carbon-bar-fill"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="calculator-tip">
+
+                            <div class="tip-icon">💡</div>
+
+                            <div>
+
+                                <h4 id="carbonTipTitle">
+                                    Eco Tip
+                                </h4>
+
+                                <p id="carbonTipText">
+                                    Adjust the sliders to see your result.
+                                </p>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
 
 
-                <p class="calculator-note">
-                    This calculator uses simplified emission factors
-                    for educational purposes. It is not a certified
-                    personal carbon audit.
-                </p>
+                <div class="calculator-note glass-card">
+
+                    <strong>ℹ️ Calculator note</strong>
+
+                    <p>
+                        This calculator uses simplified educational emission
+                        factors to provide an approximate monthly estimate.
+                        Actual emissions vary depending on vehicle efficiency,
+                        electricity source, diet, flight distance and other
+                        factors.
+                    </p>
+
+                </div>
 
             </div>
 
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                🌱 EcoGuard
+            </div>
+
+            <p>
+                Learn today. Act today. Protect tomorrow. 🌍
+            </p>
+
+            <div class="footer-line"></div>
+
+            <small>
+                © 2026 EcoGuard. Environmental awareness project.
+            </small>
+
         </div>
 
-    </section>
-
-</main>
+    </footer>
 
 
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-    <div class="footer-logo">
-        🌱 EcoGuard
-    </div>
-
-    <p>
-        Protecting the planet through awareness, technology and action.
-    </p>
-
-    <p class="copyright">
-        © 2026 EcoGuard. Educational Project.
-    </p>
-
-</footer>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
