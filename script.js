@@ -1,40 +1,51 @@
 /* =========================================================
-   ECOGUARD - COMPLETE JAVASCRIPT
-   ========================================================= */
+   ECOGUARD - MAIN JAVASCRIPT
+========================================================= */
 
 
-/* ================= GET ELEMENTS ================= */
+/* =========================================================
+   GET ELEMENTS
+========================================================= */
 
-const navButtons =
-    document.querySelectorAll(".nav-btn");
+const navButtons = document.querySelectorAll(".nav-btn");
+const sections = document.querySelectorAll(".page-section");
 
-const sections =
-    document.querySelectorAll(".page-section");
+const themeToggle = document.getElementById("themeToggle");
 
-const themeToggle =
-    document.getElementById("themeToggle");
-
-const statNumbers =
-    document.querySelectorAll(".counter");
+const statNumbers = document.querySelectorAll(".counter");
+const countryFills = document.querySelectorAll(".country-fill");
 
 
-/* ================= THEME ================= */
+/* =========================================================
+   THEME
+========================================================= */
 
-function initTheme() {
-
-    let savedTheme = "dark";
+function getSavedTheme() {
 
     try {
-        savedTheme =
-            localStorage.getItem("theme") || "dark";
+
+        return localStorage.getItem("theme") || "dark";
+
     } catch (error) {
-        savedTheme = "dark";
+
+        return "dark";
+
     }
 
-    document.documentElement
-        .setAttribute("data-theme", savedTheme);
+}
 
-    updateThemeIcon(savedTheme);
+
+function saveTheme(theme) {
+
+    try {
+
+        localStorage.setItem("theme", theme);
+
+    } catch (error) {
+
+        /* Ignore storage errors */
+    }
+
 }
 
 
@@ -45,38 +56,54 @@ function updateThemeIcon(theme) {
     }
 
     themeToggle.textContent =
-        theme === "dark" ? "☀️" : "🌙";
+        theme === "dark"
+            ? "☀️"
+            : "🌙";
+
+}
+
+
+function initTheme() {
+
+    const savedTheme = getSavedTheme();
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        savedTheme
+    );
+
+    updateThemeIcon(savedTheme);
+
 }
 
 
 if (themeToggle) {
 
-    themeToggle.addEventListener("click", () => {
+    themeToggle.addEventListener(
+        "click",
+        function () {
 
-        const currentTheme =
-            document.documentElement
-                .getAttribute("data-theme") || "dark";
+            const currentTheme =
+                document.documentElement.getAttribute(
+                    "data-theme"
+                ) || "dark";
 
-        const newTheme =
-            currentTheme === "dark"
-                ? "light"
-                : "dark";
+            const newTheme =
+                currentTheme === "dark"
+                    ? "light"
+                    : "dark";
 
-        document.documentElement
-            .setAttribute("data-theme", newTheme);
-
-        try {
-            localStorage.setItem(
-                "theme",
+            document.documentElement.setAttribute(
+                "data-theme",
                 newTheme
             );
-        } catch (error) {
-            console.log("Theme storage unavailable.");
+
+            saveTheme(newTheme);
+
+            updateThemeIcon(newTheme);
+
         }
-
-        updateThemeIcon(newTheme);
-
-    });
+    );
 
 }
 
@@ -84,11 +111,13 @@ if (themeToggle) {
 initTheme();
 
 
-/* ================= SHOW SECTION ================= */
+/* =========================================================
+   SHOW SECTION
+========================================================= */
 
 function showSection(sectionId) {
 
-    sections.forEach(section => {
+    sections.forEach(function (section) {
 
         section.classList.remove(
             "active-section"
@@ -110,9 +139,10 @@ function showSection(sectionId) {
     }
 
 
-    navButtons.forEach(button => {
+    navButtons.forEach(function (button) {
 
         button.classList.remove("active");
+
 
         if (
             button.dataset.section ===
@@ -143,45 +173,57 @@ function showSection(sectionId) {
 }
 
 
-/* ================= NAVIGATION ================= */
+/* =========================================================
+   NAVIGATION BUTTONS
+========================================================= */
 
-navButtons.forEach(button => {
+navButtons.forEach(function (button) {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        function () {
 
-        const sectionId =
-            button.dataset.section;
+            const sectionId =
+                button.dataset.section;
 
-        showSection(sectionId);
+            showSection(sectionId);
 
-    });
+        }
+    );
 
 });
 
 
-/* ================= HERO BUTTONS ================= */
+/* =========================================================
+   HERO / CARD SECTION BUTTONS
+========================================================= */
 
-const sectionLinks =
+const sectionLinkButtons =
     document.querySelectorAll(
         "[data-section-link]"
     );
 
 
-sectionLinks.forEach(button => {
+sectionLinkButtons.forEach(function (button) {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        function () {
 
-        const sectionId =
-            button.dataset.sectionLink;
+            const sectionId =
+                button.dataset.sectionLink;
 
-        showSection(sectionId);
+            showSection(sectionId);
 
-    });
+        }
+    );
 
 });
 
 
-/* ================= STATISTICS ================= */
+/* =========================================================
+   ANIMATE STATISTICS
+========================================================= */
 
 let statisticsAnimated = false;
 
@@ -195,12 +237,15 @@ function animateStatistics() {
     statisticsAnimated = true;
 
 
-    statNumbers.forEach(stat => {
+    /* Number counters */
+
+    statNumbers.forEach(function (stat) {
 
         const target =
             parseFloat(
                 stat.dataset.target
             );
+
 
         const decimals =
             parseInt(
@@ -208,16 +253,23 @@ function animateStatistics() {
                 10
             );
 
-        const duration = 1600;
+
+        if (isNaN(target)) {
+            return;
+        }
+
+
+        const duration = 1500;
 
         const startTime =
             performance.now();
 
 
-        function updateNumber(currentTime) {
+        function updateCounter(currentTime) {
 
             const elapsed =
                 currentTime - startTime;
+
 
             const progress =
                 Math.min(
@@ -227,28 +279,26 @@ function animateStatistics() {
 
 
             const eased =
-                progress *
-                (2 - progress);
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
 
 
-            const value =
+            const current =
                 target * eased;
 
 
             stat.textContent =
-                value.toFixed(decimals);
+                current.toFixed(decimals);
 
 
             if (progress < 1) {
 
                 requestAnimationFrame(
-                    updateNumber
+                    updateCounter
                 );
-
-            } else {
-
-                stat.textContent =
-                    target.toFixed(decimals);
 
             }
 
@@ -256,353 +306,509 @@ function animateStatistics() {
 
 
         requestAnimationFrame(
-            updateNumber
+            updateCounter
         );
 
     });
 
 
-    const countryBars =
-        document.querySelectorAll(
-            ".country-fill"
-        );
+    /* Country bars */
 
-
-    countryBars.forEach(bar => {
+    countryFills.forEach(function (bar) {
 
         const width =
             parseFloat(
-                bar.dataset.width || 0
+                bar.dataset.width
             );
+
+
+        if (isNaN(width)) {
+            return;
+        }
+
 
         bar.style.width = "0%";
 
 
-        setTimeout(() => {
+        requestAnimationFrame(
+            function () {
 
-            bar.style.width =
-                width + "%";
+                setTimeout(
+                    function () {
 
-        }, 100);
+                        bar.style.width =
+                            width + "%";
+
+                    },
+                    100
+                );
+
+            }
+        );
 
     });
 
 }
 
 
-/* ================= CARBON CALCULATOR ================= */
+/* =========================================================
+   CARBON CALCULATOR
+========================================================= */
 
-const carbonCar =
-    document.getElementById("carbonCar");
+(function initCarbonCalculator() {
 
-const carbonCarOut =
-    document.getElementById("carbonCarOut");
+    const car =
+        document.getElementById(
+            "carbonCar"
+        );
 
-const carbonPower =
-    document.getElementById("carbonPower");
-
-const carbonPowerOut =
-    document.getElementById("carbonPowerOut");
-
-const carbonMeals =
-    document.getElementById("carbonMeals");
-
-const carbonMealsOut =
-    document.getElementById("carbonMealsOut");
-
-const carbonFlights =
-    document.getElementById("carbonFlights");
-
-const carbonFlightsOut =
-    document.getElementById("carbonFlightsOut");
-
-
-const carbonTotal =
-    document.getElementById("carbonTotal");
-
-const carbonComparison =
-    document.getElementById("carbonComparison");
-
-
-const carbonTransportBar =
-    document.getElementById(
-        "carbonTransportBar"
-    );
-
-const carbonEnergyBar =
-    document.getElementById(
-        "carbonEnergyBar"
-    );
-
-const carbonFoodBar =
-    document.getElementById(
-        "carbonFoodBar"
-    );
-
-
-const carbonTransportVal =
-    document.getElementById(
-        "carbonTransportVal"
-    );
-
-const carbonEnergyVal =
-    document.getElementById(
-        "carbonEnergyVal"
-    );
-
-const carbonFoodVal =
-    document.getElementById(
-        "carbonFoodVal"
-    );
-
-
-const carbonTipTitle =
-    document.getElementById(
-        "carbonTipTitle"
-    );
-
-const carbonTipText =
-    document.getElementById(
-        "carbonTipText"
-    );
-
-
-/* ================= CALCULATOR FUNCTION ================= */
-
-function updateCarbonCalculator() {
-
-    if (
-        !carbonCar ||
-        !carbonPower ||
-        !carbonMeals ||
-        !carbonFlights
-    ) {
-        return;
-    }
-
-
-    /* Values */
-
-    const carKm =
-        Number(carbonCar.value);
-
-    const electricity =
-        Number(carbonPower.value);
+    const power =
+        document.getElementById(
+            "carbonPower"
+        );
 
     const meals =
-        Number(carbonMeals.value);
+        document.getElementById(
+            "carbonMeals"
+        );
 
     const flights =
-        Number(carbonFlights.value);
-
-
-    /* Emission factors */
-
-    const carEmission =
-        carKm * 0.19;
-
-    const electricityEmission =
-        electricity * 0.42;
-
-    const foodEmission =
-        meals * 2.5;
-
-    const flightEmission =
-        flights * 255;
-
-
-    /* Categories */
-
-    const transport =
-        carEmission + flightEmission;
-
-    const energy =
-        electricityEmission;
-
-    const food =
-        foodEmission;
-
-
-    /* Total */
-
-    const total =
-        transport +
-        energy +
-        food;
-
-
-    /* Update input labels */
-
-    carbonCarOut.textContent =
-        `${carKm} km`;
-
-    carbonPowerOut.textContent =
-        `${electricity} kWh`;
-
-    carbonMealsOut.textContent =
-        `${meals} meals`;
-
-    carbonFlightsOut.textContent =
-        `${flights} flights`;
-
-
-    /* Update total */
-
-    carbonTotal.textContent =
-        `${total.toFixed(1)} kg`;
-
-
-    /* Compare with 500 kg reference */
-
-    const reference = 500;
-
-
-    if (total > reference) {
-
-        const percentage =
-            ((total - reference) /
-                reference) * 100;
-
-        carbonComparison.textContent =
-            `${percentage.toFixed(1)}% above the 500 kg monthly reference.`;
-
-    } else if (total < reference) {
-
-        const percentage =
-            ((reference - total) /
-                reference) * 100;
-
-        carbonComparison.textContent =
-            `${percentage.toFixed(1)}% below the 500 kg monthly reference.`;
-
-    } else {
-
-        carbonComparison.textContent =
-            "Exactly at the 500 kg monthly reference.";
-
-    }
-
-
-    /* Update category values */
-
-    carbonTransportVal.textContent =
-        `${transport.toFixed(1)} kg`;
-
-    carbonEnergyVal.textContent =
-        `${energy.toFixed(1)} kg`;
-
-    carbonFoodVal.textContent =
-        `${food.toFixed(1)} kg`;
-
-
-    /* Find largest category */
-
-    const maximum =
-        Math.max(
-            transport,
-            energy,
-            food,
-            1
+        document.getElementById(
+            "carbonFlights"
         );
 
 
-    /* Update bars */
+    const carOut =
+        document.getElementById(
+            "carbonCarOut"
+        );
 
-    carbonTransportBar.style.width =
-        `${(transport / maximum) * 100}%`;
+    const powerOut =
+        document.getElementById(
+            "carbonPowerOut"
+        );
 
-    carbonEnergyBar.style.width =
-        `${(energy / maximum) * 100}%`;
+    const mealsOut =
+        document.getElementById(
+            "carbonMealsOut"
+        );
 
-    carbonFoodBar.style.width =
-        `${(food / maximum) * 100}%`;
+    const flightsOut =
+        document.getElementById(
+            "carbonFlightsOut"
+        );
 
 
-    /* Recommendation */
+    const totalOutput =
+        document.getElementById(
+            "carbonTotal"
+        );
+
+    const comparison =
+        document.getElementById(
+            "carbonComparison"
+        );
+
+
+    const transportBar =
+        document.getElementById(
+            "carbonTransportBar"
+        );
+
+    const energyBar =
+        document.getElementById(
+            "carbonEnergyBar"
+        );
+
+    const foodBar =
+        document.getElementById(
+            "carbonFoodBar"
+        );
+
+
+    const transportValue =
+        document.getElementById(
+            "carbonTransportVal"
+        );
+
+    const energyValue =
+        document.getElementById(
+            "carbonEnergyVal"
+        );
+
+    const foodValue =
+        document.getElementById(
+            "carbonFoodVal"
+        );
+
+
+    const tipTitle =
+        document.getElementById(
+            "carbonTipTitle"
+        );
+
+    const tipText =
+        document.getElementById(
+            "carbonTipText"
+        );
+
+
+    /*
+        If the calculator is not present,
+        safely stop.
+    */
 
     if (
-        transport >= energy &&
-        transport >= food
+        !car ||
+        !power ||
+        !meals ||
+        !flights
     ) {
 
-        carbonTipTitle.textContent =
-            "Reduce Transport Emissions";
-
-        carbonTipText.textContent =
-            "Try walking, cycling, public transport or carpooling. Reducing unnecessary flights can also make a large difference.";
-
-    } else if (
-        energy >= transport &&
-        energy >= food
-    ) {
-
-        carbonTipTitle.textContent =
-            "Reduce Electricity Use";
-
-        carbonTipText.textContent =
-            "Switch off unused appliances, use efficient devices and consider cleaner energy sources where available.";
-
-    } else {
-
-        carbonTipTitle.textContent =
-            "Reduce Food Emissions";
-
-        carbonTipText.textContent =
-            "Consider reducing meat-heavy meals and adding more plant-based meals to your diet.";
+        return;
 
     }
 
-}
+
+    /*
+        Simplified educational emission factors.
+
+        Driving:
+        0.19 kg CO₂e / km
+
+        Electricity:
+        0.42 kg CO₂e / kWh
+
+        Meat-based meal:
+        2.5 kg CO₂e / meal
+
+        Short flight:
+        255 kg CO₂e / flight
+    */
+
+    const FACTORS = {
+
+        driving: 0.19,
+
+        electricity: 0.42,
+
+        meal: 2.5,
+
+        flight: 255
+
+    };
 
 
-/* ================= CALCULATOR EVENTS ================= */
+    const MONTHLY_REFERENCE =
+        500;
 
-[
-    carbonCar,
-    carbonPower,
-    carbonMeals,
-    carbonFlights
-].forEach(input => {
 
-    if (input) {
+    function formatNumber(number) {
 
-        input.addEventListener(
-            "input",
-            updateCarbonCalculator
+        return number.toLocaleString(
+            "en-IN",
+            {
+                maximumFractionDigits: 1
+            }
         );
 
     }
 
-});
+
+    function updateCalculator() {
+
+        const drivingKm =
+            Number(car.value) || 0;
+
+        const electricity =
+            Number(power.value) || 0;
+
+        const meatMeals =
+            Number(meals.value) || 0;
+
+        const shortFlights =
+            Number(flights.value) || 0;
 
 
-/* Initial calculator calculation */
+        /* Category calculations */
 
-updateCarbonCalculator();
+        const drivingEmissions =
+            drivingKm *
+            FACTORS.driving;
 
 
-/* ================= BUTTON PRESS ANIMATION ================= */
+        const flightEmissions =
+            shortFlights *
+            FACTORS.flight;
+
+
+        const transportEmissions =
+            drivingEmissions +
+            flightEmissions;
+
+
+        const energyEmissions =
+            electricity *
+            FACTORS.electricity;
+
+
+        const foodEmissions =
+            meatMeals *
+            FACTORS.meal;
+
+
+        const total =
+            transportEmissions +
+            energyEmissions +
+            foodEmissions;
+
+
+        /* Update slider labels */
+
+        carOut.textContent =
+            `${drivingKm} km`;
+
+        powerOut.textContent =
+            `${electricity} kWh`;
+
+        mealsOut.textContent =
+            `${meatMeals} meals`;
+
+        flightsOut.textContent =
+            `${shortFlights} flights`;
+
+
+        /* Update total */
+
+        totalOutput.textContent =
+            formatNumber(total);
+
+
+        /* Comparison */
+
+        const difference =
+            total - MONTHLY_REFERENCE;
+
+
+        if (total === 0) {
+
+            comparison.textContent =
+                "No activity entered yet.";
+
+        } else if (difference > 0) {
+
+            const percentage =
+                (
+                    difference /
+                    MONTHLY_REFERENCE *
+                    100
+                ).toFixed(0);
+
+            comparison.textContent =
+                `${percentage}% above the 500 kg monthly reference.`;
+
+        } else {
+
+            const percentage =
+                (
+                    Math.abs(difference) /
+                    MONTHLY_REFERENCE *
+                    100
+                ).toFixed(0);
+
+            comparison.textContent =
+                `${percentage}% below the 500 kg monthly reference.`;
+
+        }
+
+
+        /* Category values */
+
+        transportValue.textContent =
+            `${formatNumber(transportEmissions)} kg`;
+
+        energyValue.textContent =
+            `${formatNumber(energyEmissions)} kg`;
+
+        foodValue.textContent =
+            `${formatNumber(foodEmissions)} kg`;
+
+
+        /*
+            Make the largest category 100%
+            so the bars are easy to compare.
+        */
+
+        const maximum =
+            Math.max(
+                transportEmissions,
+                energyEmissions,
+                foodEmissions,
+                1
+            );
+
+
+        transportBar.style.width =
+            `${transportEmissions / maximum * 100}%`;
+
+
+        energyBar.style.width =
+            `${energyEmissions / maximum * 100}%`;
+
+
+        foodBar.style.width =
+            `${foodEmissions / maximum * 100}%`;
+
+
+        /* Determine largest category */
+
+        const categories = [
+
+            {
+                name: "Transport",
+                value: transportEmissions
+            },
+
+            {
+                name: "Energy",
+                value: energyEmissions
+            },
+
+            {
+                name: "Food",
+                value: foodEmissions
+            }
+
+        ];
+
+
+        categories.sort(
+            function (a, b) {
+
+                return b.value - a.value;
+
+            }
+        );
+
+
+        const largest =
+            categories[0];
+
+
+        if (
+            !largest ||
+            largest.value === 0
+        ) {
+
+            tipTitle.textContent =
+                "Eco Tip";
+
+            tipText.textContent =
+                "Adjust the sliders to calculate your footprint.";
+
+            return;
+
+        }
+
+
+        /* Recommendations */
+
+        if (
+            largest.name ===
+            "Transport"
+        ) {
+
+            tipTitle.textContent =
+                "🚗 Transport Tip";
+
+            tipText.textContent =
+                "Try walking, cycling, public transport or combining trips. Reducing unnecessary driving and flights can significantly lower transport emissions.";
+
+        } else if (
+            largest.name ===
+            "Energy"
+        ) {
+
+            tipTitle.textContent =
+                "⚡ Energy Tip";
+
+            tipText.textContent =
+                "Switch off unused appliances, use efficient devices and reduce unnecessary electricity consumption.";
+
+        } else {
+
+            tipTitle.textContent =
+                "🥗 Food Tip";
+
+            tipText.textContent =
+                "Consider reducing high-emission meals and adding more lower-emission food choices to your routine.";
+
+        }
+
+    }
+
+
+    /* Listen for slider changes */
+
+    car.addEventListener(
+        "input",
+        updateCalculator
+    );
+
+    power.addEventListener(
+        "input",
+        updateCalculator
+    );
+
+    meals.addEventListener(
+        "input",
+        updateCalculator
+    );
+
+    flights.addEventListener(
+        "input",
+        updateCalculator
+    );
+
+
+    /* Initial calculation */
+
+    updateCalculator();
+
+})();
+
+
+/* =========================================================
+   BUTTON PRESS EFFECT
+========================================================= */
 
 const allButtons =
-    document.querySelectorAll("button");
+    document.querySelectorAll(
+        "button"
+    );
 
 
-allButtons.forEach(button => {
+allButtons.forEach(function (button) {
 
     button.addEventListener(
         "mousedown",
-        () => {
+        function () {
 
             button.animate(
                 [
                     {
-                        transform: "scale(1)"
+                        transform:
+                            "scale(1)"
                     },
+
                     {
-                        transform: "scale(0.96)"
+                        transform:
+                            "scale(0.96)"
                     },
+
                     {
-                        transform: "scale(1)"
+                        transform:
+                            "scale(1)"
                     }
                 ],
                 {
@@ -617,17 +823,20 @@ allButtons.forEach(button => {
 });
 
 
-/* ================= PAGE LOAD ================= */
+/* =========================================================
+   PAGE LOAD
+========================================================= */
 
 window.addEventListener(
     "load",
-    () => {
+    function () {
 
         document.body.animate(
             [
                 {
                     opacity: 0
                 },
+
                 {
                     opacity: 1
                 }
@@ -645,57 +854,66 @@ window.addEventListener(
 );
 
 
-/* ================= SCROLL ANIMATION ================= */
+/* =========================================================
+   INTERSECTION OBSERVER
+========================================================= */
 
 if (
-    "IntersectionObserver" in window
+    "IntersectionObserver"
+    in window
 ) {
 
     const observerOptions = {
 
-        threshold: 0.1,
+        threshold: 0.10,
 
         rootMargin:
-            "0px 0px -50px 0px"
+            "0px 0px -40px 0px"
 
     };
 
 
     const observer =
         new IntersectionObserver(
-            (entries) => {
+            function (entries) {
 
-                entries.forEach(entry => {
+                entries.forEach(
+                    function (entry) {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                        entry.target.classList.add(
-                            "visible"
-                        );
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
-                        observer.unobserve(
-                            entry.target
-                        );
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
 
                     }
-
-                });
+                );
 
             },
             observerOptions
         );
 
 
-    document
-        .querySelectorAll(
+    const animatedElements =
+        document.querySelectorAll(
             ".feature-card, .glass-card, .gas-card, .prevention-card"
-        )
-        .forEach(element => {
+        );
+
+
+    animatedElements.forEach(
+        function (element) {
 
             observer.observe(element);
 
-        });
+        }
+    );
 
 }
